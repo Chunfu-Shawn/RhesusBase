@@ -1,0 +1,138 @@
+html{
+  scroll-behavior: smooth;
+}
+
+html body{
+  margin:0 auto;
+  background-color: #f8f8f8;
+}
+
+html body .mainbody{
+  min-height: calc(100vh - 100px);
+  min-width: 1440px;
+  align-content: center;
+  color: #000000;
+  background-color: #f8f8f8;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: #5b8c00;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #3f6600;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+
+.container {
+  min-width: 1440px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.cover-heading{
+  margin: 50px 0;
+}
+
+body a{
+  color: #3f6600;
+}
+body a:hover {
+  color: #5b8c00;
+  text-decoration: none;
+}
+
+.cover {
+  text-align: center;
+  margin: auto;
+  width: 1440px;
+  padding: 120px 100px 50px 100px;
+}
+
+.modal-body-stw {
+  /*
+  to make footer bottom
+   */
+  min-height: calc(100vh - 150px);
+  margin:0 auto;
+  width: 1440px;
+  position: relative;
+  padding: 120px 80px 50px 50px;
+  text-align: center;
+  align-content: center;
+}
+.with-sider{
+  min-width:1440px;
+  padding: 120px 60px 120px 0;
+  text-align:left
+}
+
+.border-card-wrapper{
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border-color: #f1f1f1;
+  border-style: solid;
+}
+
+.border-card-wrapper:hover{
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(185, 185, 185, 0.2);
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.thumbnail{
+  border-color: #2c4110;
+  border-style: solid;
+}
+
+

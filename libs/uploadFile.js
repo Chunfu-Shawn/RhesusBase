@@ -1,0 +1,33 @@
+import multer from '@koa/multer'
+
+
+const deleteSpecificChar = (str) => {
+    let pattern = new RegExp("[`~!@#$^&*()=|{}':;,\\[\\]<>/?！￥…（）—【】；：”“。，、？]");
+    let rs = "";
+    for (let i = 0; i < str.length; i++) {
+        // 文件名称去掉特殊字符但保留原始文件名称
+        rs = rs + str.substring(i, i+1)
+            .replaceAll(" ", "_")
+            .replace(pattern, '');
+    }
+    return rs
+}
+
+export function uploadFile(fileName) {
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            const tmpDir = 'public/uploads'
+            cb(null, tmpDir)
+        },
+        filename: function (ctx, file, cb) {
+            cb(null, deleteSpecificChar(fileName))
+        }
+    })
+    const limits = {
+        fields: 12,//非文件字段的数量
+        fileSize: 200 * 1024 * 1024,//文件大小 单位 Byte
+        files: 4//文件数量
+    }
+
+    return multer({storage,limits})
+}
