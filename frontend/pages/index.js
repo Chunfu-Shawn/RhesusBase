@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle+" - Home"}</title>
+                <title>{siteTitle+": A knowledgebase for the monkey research community"}</title>
             </Head>
             <div id="home" className={"mainbody"}>
                 <MainPage></MainPage>

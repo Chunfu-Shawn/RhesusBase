@@ -1,6 +1,4 @@
-import Link from "next/link.js";
 import {Card, Col} from "antd";
-import Image from "next/image";
 
 export default function PlaceHolder(props){
     return(

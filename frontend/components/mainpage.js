@@ -6,9 +6,9 @@ export default function MainPage() {
     return(
         <>
             <div className="cover-container">
-                <div className="inner cover" >
+                <div className="cover">
                     <h1 className="cover-heading">A knowledgebase for the monkey research community</h1>
-                    <Button type="primary">About</Button>
+                    <Button type="primary" size={"large"}>About</Button>
                 </div>
             </div>
             <div className="modal-body-stw" style={{paddingTop:0}}>
@@ -16,20 +16,36 @@ export default function MainPage() {
                     <h2 className={"inner"} >Explore RhesusBase</h2>
                 </Divider>
                 <a id={"more"} style={{position: 'relative', top: "-200px"}}></a>
-                <Row style={{margin:"20px 0px"}} gutter={[20,10]} justify="space-between" >
-                    <PlaceHolder title={"Spatial Mapping"}
+                <Row style={{margin:"20px 0px"}} gutter={[20,20]} justify="space-between" >
+                    <PlaceHolder title={"STellaris"}
                                  context={"The key tool designed for accurate spatial mapping for scRNA-seq data " +
                                      "based on properly matched spatial transcriptomics data."}
                                  link={"/mapping"} pic={"placeholder.png"}/>
-                    <PlaceHolder title={"Dataset Browser"}
+                    <PlaceHolder title={"Gene Page"}
                                  context={"Dataset browser comprises modules of meta information, basic visualization and " +
                                      "files download of curated ST datasets"}
                                  link={"/datasets"} pic={"placeholder.png"}/>
-                    <PlaceHolder title={"Gene Search"}
+                    <PlaceHolder title={"UCSC-mode Browser"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
                                  link={"/search"} pic={"placeholder.png"}/>
-                    <PlaceHolder title={"Gene Search"}
+                    <PlaceHolder title={"Molecular Evolution"}
+                                 context={"An interface to search for spatially resolved gene expression heterogeneity " +
+                                     "across all curated ST datasets."}
+                                 link={"/search"} pic={"placeholder.png"}/>
+                    <PlaceHolder title={"Population Genetics"}
+                                 context={"The key tool designed for accurate spatial mapping for scRNA-seq data " +
+                                     "based on properly matched spatial transcriptomics data."}
+                                 link={"/mapping"} pic={"placeholder.png"}/>
+                    <PlaceHolder title={"Drug Discovery"}
+                                 context={"Dataset browser comprises modules of meta information, basic visualization and " +
+                                     "files download of curated ST datasets"}
+                                 link={"/datasets"} pic={"placeholder.png"}/>
+                    <PlaceHolder title={"Downloads"}
+                                 context={"An interface to search for spatially resolved gene expression heterogeneity " +
+                                     "across all curated ST datasets."}
+                                 link={"/search"} pic={"placeholder.png"}/>
+                    <PlaceHolder title={"RhesusBase quality score"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
                                  link={"/search"} pic={"placeholder.png"}/>
