@@ -20,23 +20,28 @@ export default function MainPage() {
                     <PlaceHolder title={"STellaris"}
                                  context={"The key tool designed for accurate spatial mapping for scRNA-seq data " +
                                      "based on properly matched spatial transcriptomics data."}
-                                 link={"/mapping"} pic={"placeholder.png"}/>
+                                 link={"https://spatial.rhesusbase.com"}
+                                 pic={"STellaris.png"}/>
                     <PlaceHolder title={"Gene Page"}
                                  context={"Dataset browser comprises modules of meta information, basic visualization and " +
                                      "files download of curated ST datasets"}
-                                 link={"/datasets"} pic={"placeholder.png"}/>
+                                 link={"/datasets"}
+                                 pic={"genePage.png"}/>
                     <PlaceHolder title={"UCSC-mode Browser"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
-                                 link={"/search"} pic={"placeholder.png"}/>
+                                 link={"https://browser.rhesusbase.com"}
+                                 pic={"UCSC-mode.png"}/>
                     <PlaceHolder title={"Molecular Evolution"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
-                                 link={"/search"} pic={"placeholder.png"}/>
+                                 link={"/molEvo"}
+                                 pic={"molEvo.png"}/>
                     <PlaceHolder title={"Population Genetics"}
                                  context={"The key tool designed for accurate spatial mapping for scRNA-seq data " +
                                      "based on properly matched spatial transcriptomics data."}
-                                 link={"/mapping"} pic={"placeholder.png"}/>
+                                 link={"/popGateway"}
+                                 pic={"popGateway.jpg"}/>
                     <PlaceHolder title={"Drug Discovery"}
                                  context={"Dataset browser comprises modules of meta information, basic visualization and " +
                                      "files download of curated ST datasets"}
@@ -44,11 +49,13 @@ export default function MainPage() {
                     <PlaceHolder title={"Downloads"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
-                                 link={"/search"} pic={"placeholder.png"}/>
+                                 link={"/downloads"}
+                                 pic={"placeholder.png"}/>
                     <PlaceHolder title={"RhesusBase quality score"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
-                                 link={"/search"} pic={"placeholder.png"}/>
+                                 link={"/search"}
+                                 pic={"placeholder.png"}/>
                 </Row>
             </div>
         </>

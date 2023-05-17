@@ -66,7 +66,7 @@ export default function Navigator(){
                     {//<li id="drugDis" className="nav-item"><Link href="/drugDis"><a className="nav-link">Drug Discovery</a></Link></li>
                     }
                     <li id="downloads" className="nav-item"><Link href="/downloads"><a className="nav-link">Downloads</a></Link></li>
-                    <li id="help" className="nav-item"><Link href="/help"><a className="nav-link">Help</a></Link></li>
+                    <li id="help" className="nav-item"><Link href="/help/manual/mapping"><a className="nav-link">Help</a></Link></li>
                     <li id="contact" className="nav-item"><Link href="/contact"><a className="nav-link" >Contact</a></Link></li>
                 </ul>
                 <div style={{float:"right",padding: '25px'}}>

@@ -4,7 +4,6 @@ html{
 
 html body{
   margin:0 auto;
-  background-color: #f8f8f8;
 }
 
 html body .mainbody{
@@ -34,7 +33,7 @@ a {
 a:hover,
 a:focus {
   color: #3f6600;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: 5px auto -webkit-focus-ring-color;
@@ -59,6 +58,7 @@ ol ol {
   padding-left: 15px;
   margin: auto;
 }
+
 @media (min-width: 768px) {
   .container {
     width: 900px;
@@ -79,19 +79,12 @@ ol ol {
   margin: 50px 0;
 }
 
-body a{
-  color: #3f6600;
-}
-body a:hover {
-  color: #5b8c00;
-  text-decoration: none;
-}
 .cover-container {
   min-width: 1440px;
   text-align: center;
   margin: auto;
   background-color: #2c4806;
-  background-image: url("/images/bg.png"),url("/images/bg_min.jpg");
+  background-image: url("/images/index/bg.png"),url("/images/index/bg.png");
   background-position: center, center;
   background-size: 100%, 100%;
   background-repeat: no-repeat, no-repeat;
@@ -121,6 +114,7 @@ body a:hover {
   text-align: center;
   align-content: center;
 }
+
 .with-sider{
   min-width:1440px;
   padding: 120px 60px 120px 0;
@@ -145,5 +139,14 @@ body a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+.people{
+  list-style: none;
+  padding: 0px
+}
+
+.notion{
+  color:gray;
+  font-size:18px
+}
 
 
