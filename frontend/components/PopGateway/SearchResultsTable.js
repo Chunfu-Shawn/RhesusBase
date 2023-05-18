@@ -28,7 +28,7 @@ export default function SearchResultsTable(props){
             },
             sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
             render: (text,record) => text!=="-" ?
-                <a href={`/search/genePage/${record.ensembl_id}`} target={"_blank"} id={record.ensembl_id} rel={'noreferrer'}>
+                <a href={`/search/genePage/${record.entrezID}`} target={"_blank"} id={record.entrezID} rel={'noreferrer'}>
                     {text}
                 </a>:"-",
         },
@@ -67,7 +67,7 @@ export default function SearchResultsTable(props){
                     <span>Gene type</span>
                     <Link href={'/help/manual/search#gene_list'}>
                         <a target={'_blank'}>
-                            <QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/>
+                            <QuestionCircleFilled  style={{fontSize:"15px",color:"#3f6600"}}/>
                         </a>
                     </Link>
                 </Space>
@@ -182,7 +182,7 @@ export default function SearchResultsTable(props){
             <div style={{height:"45vh"}}>
                 <Divider />
                 <span style={{fontSize:"25px",fontWeight:"bold"}}> 0 Results Found </span>
-                <QuestionCircleFilled style={{fontSize:"25px",color:"#4426b0"}}/>
+                <QuestionCircleFilled style={{fontSize:"25px",color:"#3f6600"}}/>
             </div>
         )
 }
