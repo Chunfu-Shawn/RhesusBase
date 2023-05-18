@@ -76,7 +76,7 @@ ol ol {
 }
 
 .cover-heading{
-  margin: 50px 0;
+  margin: 50px 820px 50px 0px;
 }
 
 .cover-container {
@@ -84,7 +84,7 @@ ol ol {
   text-align: center;
   margin: auto;
   background-color: #2c4806;
-  background-image: url("/images/index/bg.png"),url("/images/index/bg.png");
+  background-image: url("/images/index/bg_rhesus.png"),url("/images/index/bg_rhesus.png");
   background-position: center, center;
   background-size: 100%, 100%;
   background-repeat: no-repeat, no-repeat;
@@ -92,10 +92,11 @@ ol ol {
 
 .cover {
   color: white;
-  text-align: center;
+  text-align: left;
   margin: auto;
   width: 1440px;
-  padding: 120px 100px 50px 100px;
+  height: 500px;
+  padding: 120px 50px 50px 50px;
 }
 
 .search-drawer .ant-drawer-content-wrapper{
@@ -110,7 +111,7 @@ ol ol {
   margin:0 auto;
   width: 1440px;
   position: relative;
-  padding: 120px 80px 50px 50px;
+  padding: 120px 50px 50px 50px;
   text-align: center;
   align-content: center;
 }
@@ -145,8 +146,21 @@ ol ol {
 }
 
 .notion{
+  text-align:left;
   color:gray;
   font-size:18px
+}
+
+.introduction{
+  text-align:left;
+  color: #3a3a3a;
+  font-size:18px
+}
+
+.highlight{
+  text-align:left;
+  color:#5b8c00;
+  font-size:19px
 }
 
 

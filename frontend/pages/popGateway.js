@@ -3,30 +3,34 @@ import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import {Input, Select} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
-import Link from "next/link.js";
-import {QuestionCircleOutlined} from "@ant-design/icons";
 import Image from "next/image";
 const { Search } = Input;
 const { Option } = Select;
 
 export default function SearchPage() {
-    const [searching, setSearching] = useState(false);
-    const [idType, setIdType] = useState('Symbol');
+    const [geneSearching, setGeneSearching] = useState(false);
+    const [locationSearching, setLocationSearching] = useState(false);
+    const [idType, setIdType] = useState('symbol');
     const router = useRouter()
     const onIDTypeChange = (value) => {
         setIdType(value)
     }
     const onSearch = (value) => {
         if (value !== ''){
-            setSearching(true)
+            setGeneSearching(true)
             router.push({
-                pathname: `/search/results`,
+                pathname: `/popGateway/geneList`,
                 query: {
                     idType: idType,
-                    geneName: value
+                    keyword: value
                 },
             })
-            setSearching(false)
+        }
+    }
+    const onBroswerSearch = (value) =>{
+        if (value !== '') {
+            setLocationSearching(true)
+            top.location = 'https://browser.rhesusbase.com/cgi-bin/hgTracks?db=rheMac2&position=' + value;
         }
     }
     return (
@@ -47,11 +51,11 @@ export default function SearchPage() {
                         parameters for each gene in rhesus macaque</p>
                 </div>
                 <Input.Group compact>
-                    <Select defaultValue="Symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
-                        <Option value="Symbol">Gene Symbol</Option>
-                        <Option value="Entrez">Entrez ID</Option>
-                        <Option value="Ensembl">Ensembl ID</Option>
-                        <Option value="Location">Location</Option>
+                    <Select defaultValue="symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                        <Option value="symbol">Gene Symbol</Option>
+                        <Option value="entrezID">Entrez ID</Option>
+                        <Option value="ensemblID">Ensembl ID</Option>
+                        <Option value="location">Location</Option>
                     </Select>
                     <Search
                         placeholder="input a gene of interest"
@@ -64,12 +68,12 @@ export default function SearchPage() {
                         style={{
                             width: "60%",
                         }}
-                        loading={searching}
+                        loading={geneSearching}
                     />
                 </Input.Group><br/>
                 <Input.Group compact>
-                    <Select defaultValue="Location" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
-                        <Option value="Location">Location</Option>
+                    <Select defaultValue="location" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                        <Option value="location">Location</Option>
                     </Select>
                     <Search
                         placeholder="input a location of interest"
@@ -77,12 +81,12 @@ export default function SearchPage() {
                         id={"search"}
                         allowClear
                         defaultValue={"chr3:1487782-1572486"}
-                        onSearch={onSearch}
+                        onSearch={onBroswerSearch}
                         size={"large"}
                         style={{
                             width: "60%",
                         }}
-                        loading={searching}
+                        loading={locationSearching}
                     />
                 </Input.Group>
             </div>

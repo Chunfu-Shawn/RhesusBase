@@ -1,7 +1,6 @@
 import {MailOutlined} from "@ant-design/icons";
 import React from "react";
 import {Col, Row, Space} from "antd";
-import Image from "next/image";
 
 export default function FooterCustom(){
 

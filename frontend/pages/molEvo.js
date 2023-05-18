@@ -10,6 +10,7 @@ export default function SearchPage() {
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
     const router = useRouter()
+
     const onIDTypeChange = (value) => {
         setIdType(value)
     }
