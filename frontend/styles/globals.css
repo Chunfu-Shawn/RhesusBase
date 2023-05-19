@@ -54,8 +54,7 @@ ol ol {
 
 .container {
   min-width: 1440px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0 50px;
   margin: auto;
 }
 
@@ -76,7 +75,10 @@ ol ol {
 }
 
 .cover-heading{
-  margin: 50px 820px 50px 0px;
+  text-align:justify;
+  font-weight: 350;
+  letter-spacing: -1px;
+  margin: 50px 880px 50px 0;
 }
 
 .cover-container {
@@ -142,17 +144,17 @@ ol ol {
 
 .people{
   list-style: none;
-  padding: 0px
+  padding: 0
 }
 
 .notion{
-  text-align:left;
+  text-align:center;
   color:gray;
   font-size:18px
 }
 
 .introduction{
-  text-align:left;
+  text-align:justify;
   color: #3a3a3a;
   font-size:18px
 }

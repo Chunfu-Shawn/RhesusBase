@@ -44,7 +44,6 @@ export default function MainPage() {
                         placeholder="input a gene of interest"
                         id={"search"}
                         allowClear
-                        defaultValue={"ADARB1"}
                         onSearch={onSearch}
                         size={"large"}
                         style={{
@@ -55,7 +54,7 @@ export default function MainPage() {
                 </div>
             </div>
             <div className="modal-body-stw" style={{paddingTop:0}}>
-                <Divider style={{borderTop:"lightgray"}}>
+                <Divider orientation="left" orientationMargin="0">
                     <h2 className={"inner"} >Introduction</h2>
                 </Divider>
                 <p className={"introduction"}>
@@ -90,7 +89,7 @@ export default function MainPage() {
                     Overall, RhesusBase provides a basis for precise functional and mechanism studies using rhesus macaque
                     as a characteristic model.
                 </p>
-                <Divider style={{borderTop:"lightgray"}}>
+                <Divider orientation="left" orientationMargin="0">
                     <h2 className={"inner"} >Explore RhesusBase</h2>
                 </Divider>
                 <a id={"more"} style={{position: 'relative', top: "-200px"}}></a>
@@ -134,7 +133,7 @@ export default function MainPage() {
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}
                                  link={"/search"}
-                                 pic={"placeholder.png"}/>
+                                 pic={"RhesusBaseScore.png"}/>
                 </Row>
             </div>
         </>

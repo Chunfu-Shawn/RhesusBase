@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import {Input, Select} from 'antd';
+import {Input, Select, Space} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
 import Image from "next/image";
 const { Search } = Input;
 const { Option } = Select;
 
-export default function SearchPage() {
+export default function PopGateway() {
     const [geneSearching, setGeneSearching] = useState(false);
     const [locationSearching, setLocationSearching] = useState(false);
     const [idType, setIdType] = useState('symbol');
@@ -19,7 +19,7 @@ export default function SearchPage() {
         if (value !== ''){
             setGeneSearching(true)
             router.push({
-                pathname: `/popGateway/geneList`,
+                pathname: '/popGateway/geneList',
                 query: {
                     idType: idType,
                     keyword: value
@@ -50,8 +50,8 @@ export default function SearchPage() {
                     <p style={{color:"gray",fontSize:"18px"}}>An interface to access comprehensive population genetics
                         parameters for each gene in rhesus macaque</p>
                 </div>
-                <Input.Group compact>
-                    <Select defaultValue="symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                <Space>
+                    <Select defaultValue="symbol" style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
                         <Option value="symbol">Gene Symbol</Option>
                         <Option value="entrezID">Entrez ID</Option>
                         <Option value="ensemblID">Ensembl ID</Option>
@@ -66,13 +66,16 @@ export default function SearchPage() {
                         onSearch={onSearch}
                         size={"large"}
                         style={{
-                            width: "60%",
+                            width: "600px",
                         }}
                         loading={geneSearching}
                     />
-                </Input.Group><br/>
-                <Input.Group compact>
-                    <Select defaultValue="location" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                </Space>
+                <p className={"notion"}>
+                    or
+                </p>
+                <Space>
+                    <Select defaultValue="location" style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
                         <Option value="location">Location</Option>
                     </Select>
                     <Search
@@ -84,11 +87,11 @@ export default function SearchPage() {
                         onSearch={onBroswerSearch}
                         size={"large"}
                         style={{
-                            width: "60%",
+                            width: "600px",
                         }}
                         loading={locationSearching}
                     />
-                </Input.Group>
+                </Space>
             </div>
         </LayoutCustom>
     )

@@ -11,8 +11,9 @@ const { Option } = Select;
 export async function getServerSideProps(context) {
     const idType = context.query.idType
     const keyword = context.query.keyword
+    console.log(idType,keyword)
     // if geneName is not provided, return 404 Page
-    if ( typeof keyword === 'undefined' || keyword || typeof idType === 'undefined' ||
+    if ( typeof keyword === 'undefined' || typeof keyword === null || typeof idType === 'undefined' ||
         !( idType === "symbol" || idType === "ensemblID" || idType === "entrezID" || idType ==="location" )
     )
     {
@@ -23,7 +24,6 @@ export async function getServerSideProps(context) {
             }
         }
     }
-    console.log(idType,keyword)
     const geneList = await getGeneList(idType,keyword)
     // The exact results always present firstly
 
@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function geneList(props) {
+export default function GeneList(props) {
     const {keyword, geneList} = props
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');

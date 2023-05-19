@@ -45,8 +45,8 @@ export default function SearchPage() {
                         and visualize macaque annotations in reference to human orthologous genes and the associated
                         regulations</p>
                 </div>
-                <Input.Group compact>
-                    <Select defaultValue="Symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                <Space>
+                    <Select defaultValue="Symbol" style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
                         <Option value="Symbol">Gene Symbol</Option>
                         <Option value="Refseq">Refseq RNA ID</Option>
                         <Option value="Location">Location</Option>
@@ -59,12 +59,12 @@ export default function SearchPage() {
                         onSearch={onSearch}
                         size={"large"}
                         style={{
-                            width: "60%",
+                            width: "600px",
                             textAlign:"left"
                         }}
                         loading={searching}
                     />
-                </Input.Group>
+                </Space>
                 <Row justify="center" style={{margin:"30px"}}>
                     <Space>
                         <p className={"notion"}>Search:</p>
