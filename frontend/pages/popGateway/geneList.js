@@ -47,6 +47,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             keyword: keyword,
+            idType: idType,
             geneList:geneListProcessed.map(gene => {
                 return { key:gene.entrezID, ...gene }
             }),
@@ -55,12 +56,12 @@ export async function getServerSideProps(context) {
 }
 
 export default function GeneList(props) {
-    const {keyword, geneList} = props
+    const {keyword, idType, geneList} = props
     const [searching, setSearching] = useState(false);
-    const [idType, setIdType] = useState('symbol');
+    const [idType2, setIdType2] = useState(idType);
     const router = useRouter()
     const onIDTypeChange = (value) => {
-        setIdType(value)
+        setIdType2(value)
     }
     const onSearch = (value) => {
         if (value === ''){
@@ -97,7 +98,7 @@ export default function GeneList(props) {
                     </Col>
                     <Col xs={24} md={24} lg={20}>
                         <Space>
-                            <Select defaultValue="symbol" style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
+                            <Select value={idType2} style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
                                 <Option value="symbol">Gene Symbol</Option>
                                 <Option value="entrezID">Entrez ID</Option>
                                 <Option value="ensemblID">Ensembl ID</Option>
