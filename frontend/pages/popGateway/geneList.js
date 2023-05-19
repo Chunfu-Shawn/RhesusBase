@@ -23,9 +23,11 @@ export async function getServerSideProps(context) {
             }
         }
     }
+    console.log(idType,keyword)
     const geneList = await getGeneList(idType,keyword)
     // The exact results always present firstly
 
+    console.log(geneList)
     // Pass post data to the page via props
     return {
         props: {
@@ -37,7 +39,7 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function Results(props) {
+export default function geneList(props) {
     const {keyword, geneList} = props
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');

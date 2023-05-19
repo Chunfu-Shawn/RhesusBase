@@ -66,8 +66,8 @@ app.prepare().then(() => {
         }
     })
 
-    server.listen(80, () => {
-        console.log('server is running at http://localhost:80')
+    server.listen(3003, () => {
+        console.log('server is running at http://localhost:3003')
     })
 })
 

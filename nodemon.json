@@ -4,8 +4,6 @@
   "watch": [
     "libs/*",
     "libs/**/*",
-    "routes/**",
-    "routes/**/*",
     "server.js",
     "next.config.js",
     ".babelrc.js"
