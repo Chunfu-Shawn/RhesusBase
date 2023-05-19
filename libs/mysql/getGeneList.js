@@ -25,8 +25,9 @@ export function getGeneList(idType,keyword) {
             });
         } else if (idType === "entrezID") {
             // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-            selectSql = `select * from rb_gene where (entrezID = ? or humanEntrez = ?) and (taxID = '9606' 
+            selectSql = `select * from rb_gene where (entrezID like ? or humanEntrez like ?) and (taxID = '9606' 
                         or taxID = '9544') order by entrezID, humanEntrez;`
+            console.log(selectSql)
             // 连接mysql连接池
             poolReadOnly.getConnection((err, connection)=>{
                 if(err){

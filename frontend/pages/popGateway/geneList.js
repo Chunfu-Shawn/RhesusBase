@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../../components/LayoutCustom.js'
-import {Col, Input, Row, Select} from 'antd';
+import {Col, Input, Row, Select, Space} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
 import SearchResultsTable from "../../components/PopGateway/SearchResultsTable.js";
@@ -11,7 +11,6 @@ const { Option } = Select;
 export async function getServerSideProps(context) {
     const idType = context.query.idType
     const keyword = context.query.keyword
-    console.log(idType,keyword)
     // if geneName is not provided, return 404 Page
     if ( typeof keyword === 'undefined' || typeof keyword === null || typeof idType === 'undefined' ||
         !( idType === "symbol" || idType === "ensemblID" || idType === "entrezID" || idType ==="location" )
@@ -25,14 +24,30 @@ export async function getServerSideProps(context) {
         }
     }
     const geneList = await getGeneList(idType,keyword)
-    // The exact results always present firstly
 
-    console.log(geneList)
+    // One result, redirect to genePage
+    if( geneList.length === 1) {
+        return {
+            redirect: {
+                destination: `/popGateway/popPage/${geneList[0].entrezID}`,
+                permanent: false,
+            }
+        }
+    }
+
+    // The exact results always present firstly
+    const geneListProcessed = []
+    geneList.forEach((item)=>{
+        if(item["symbol"].toUpperCase() === context.query.keyword.toUpperCase()){
+            geneListProcessed.unshift(item)
+        }else geneListProcessed.push(item)
+    })
+
     // Pass post data to the page via props
     return {
         props: {
             keyword: keyword,
-            geneList:geneList.map(gene => {
+            geneList:geneListProcessed.map(gene => {
                 return { key:gene.entrezID, ...gene }
             }),
         }
@@ -42,7 +57,7 @@ export async function getServerSideProps(context) {
 export default function GeneList(props) {
     const {keyword, geneList} = props
     const [searching, setSearching] = useState(false);
-    const [idType, setIdType] = useState('Symbol');
+    const [idType, setIdType] = useState('symbol');
     const router = useRouter()
     const onIDTypeChange = (value) => {
         setIdType(value)
@@ -81,8 +96,8 @@ export default function GeneList(props) {
                         </div>
                     </Col>
                     <Col xs={24} md={24} lg={20}>
-                        <Input.Group compact>
-                            <Select defaultValue="symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                        <Space>
+                            <Select defaultValue="symbol" style={{width:'200px'}} size={"large"} onChange={onIDTypeChange}>
                                 <Option value="symbol">Gene Symbol</Option>
                                 <Option value="entrezID">Entrez ID</Option>
                                 <Option value="ensemblID">Ensembl ID</Option>
@@ -96,11 +111,11 @@ export default function GeneList(props) {
                                 onSearch={onSearch}
                                 size={"large"}
                                 style={{
-                                    width: 850,
+                                    width: "850px",
                                 }}
                                 loading={searching}
                             />
-                        </Input.Group>
+                        </Space>
                     </Col>
                 </Row>
                 <div>

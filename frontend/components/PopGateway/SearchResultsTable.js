@@ -3,16 +3,6 @@ import {useState} from "react";
 import {QuestionCircleFilled} from "@ant-design/icons";
 import Link from "next/link.js";
 
-export function setFilter(data){
-    let filter = new Set()
-    let filterJSON = []
-    data.forEach( (item) => {
-        filter.add(item.biotype)
-    })
-    for (let item of filter.values())
-        filterJSON.push({text:item,value:item})
-    return filterJSON
-}
 
 export default function SearchResultsTable(props){
     const [sortedInfo, setSortedInfo] = useState({});
@@ -28,22 +18,10 @@ export default function SearchResultsTable(props){
             },
             sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
             render: (text,record) => text!=="-" ?
-                <a href={`/search/genePage/${record.entrezID}`} target={"_blank"} id={record.entrezID} rel={'noreferrer'}>
+                <a href={`/popGateway/popPage/${record.entrezID}`} target={"_blank"} id={record.entrezID} rel={'noreferrer'}>
                     {text}
                 </a>:"-",
         },
-        /*{
-            title: 'Ensembl ID',
-            dataIndex: 'ensembl_id',
-            key: 'ensembl_id',
-            width:'15%',
-            render: (text) => <a href={'/search/genePage/'+text} target={"_blank"} rel={'noreferrer'}>{text}</a>,
-            sorter: (a, b) => {
-                if(a.ensembl_id > b.ensembl_id) return 1
-                else return -1
-            },
-            sortOrder: sortedInfo.columnKey === 'ensembl_id' ? sortedInfo.order : null,
-        },*/
         {
             title: 'Entrez ID',
             dataIndex: 'entrezID',
@@ -76,34 +54,40 @@ export default function SearchResultsTable(props){
             key: 'geneType',
             width:'18%',
             sortOrder: sortedInfo.columnKey === 'geneType' ? sortedInfo.order : null,
-            filters: setFilter(props.data),
-            onFilter: (value, record) => record.geneType.indexOf(value) === 0,
+            filters: Array.from(new Set(props.data.map(item=>item.geneType))).map(item =>
+            {
+                return{
+                    text: item,
+                    value: item
+                }
+            }),
+            onFilter: (value, record) => record.geneType === value,
             render: (_,{geneType}) => {
                 let color = ''
                 switch(geneType)
                 {
-                    case 'protein_coding':
+                    case 'protein-coding':
                         color = 'volcano'
                         break;
-                    case 'lncRNA':
+                    case 'ncRNA':
                         color = 'green'
                         break;
-                    case 'processed_pseudogene':
+                    case 'pseudo':
                         color = 'cyan'
                         break;
-                    case 'unprocessed_pseudogene':
+                    case 'rRNA':
                         color = 'purple'
                         break;
-                    case 'miRNA':
+                    case 'scRNA':
                         color = 'geekblue'
                         break;
-                    case 'TEC':
+                    case 'tRNA':
                         color = 'blue'
                         break;
                     case 'snRNA':
                         color = 'lime'
                         break;
-                    case 'misc_RNA':
+                    case 'miscRNA':
                         color = 'gold'
                         break;
                     case 'snoRNA':
@@ -123,7 +107,29 @@ export default function SearchResultsTable(props){
             title: 'Taxonomy ID',
             dataIndex: 'taxID',
             key: 'taxID',
-            width: '20%',
+            width: '10%',
+            filters: Array.from(new Set(props.data.map(item=>item.taxID))).map(item =>
+            {
+                return{
+                    text: item,
+                    value: item
+                }
+            }),
+            onFilter: (value, record) => record.taxID === value,
+        },
+        {
+            title: 'Human Entrez ID',
+            dataIndex: 'humanEntrez',
+            key: 'humanEntrez',
+            width: '12%',
+            render: (text) => text===null ? "-":text,
+        },
+        {
+            title: 'Human Symbol',
+            dataIndex: 'humanSymbol',
+            key: 'humanSymbol',
+            width: '10%',
+            render: (text) => text==='' ? "-":text,
         },
         ]
         // column sort
@@ -152,15 +158,18 @@ export default function SearchResultsTable(props){
                                                }}
                                            >
                                                    <b>Aliases: </b> {record.alias}
-                                           </span> : <></>}
-                                   {record.chr ?
-                                       <span
-                                           style={{
-                                               margin: 20,
-                                           }}
-                                       >
-                                           <b>Chromosome </b>  {`${record.chr}: ${record.start}-${record.end}`}
-                                       </span> : <></>}
+                                           </span> : <></>
+                                   }
+                                   {
+                                       record.chr ?
+                                           <span
+                                               style={{
+                                                   margin: 20,
+                                               }}
+                                           >
+                                               <b>Chromosome </b>  {`${record.chr}: ${record.start}-${record.end}`}
+                                           </span> : <></>
+                                   }
                                    {
                                        record.strand ?
                                            <span
@@ -171,6 +180,20 @@ export default function SearchResultsTable(props){
                                                <b>Strand:</b> {record.strand}
                                            </span> : <></>
                                    }
+                                   <span
+                                       style={{
+                                           margin: 20,
+                                       }}
+                                   >
+                                       <b>Mouse Entrez ID:</b> {record.mouseEntrez}
+                                   </span>
+                                   <span
+                                       style={{
+                                           margin: 20,
+                                       }}
+                                   >
+                                       <b>Mouse Symbol:</b> {record.mouseSymbol}
+                                   </span>
                                </Space>
                            ),
                            rowExpandable: (record) => record.name !== 'Not Expandable',
@@ -182,7 +205,6 @@ export default function SearchResultsTable(props){
             <div style={{height:"45vh"}}>
                 <Divider />
                 <span style={{fontSize:"25px",fontWeight:"bold"}}> 0 Results Found </span>
-                <QuestionCircleFilled style={{fontSize:"25px",color:"#3f6600"}}/>
             </div>
         )
 }
