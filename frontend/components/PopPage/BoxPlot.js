@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useRef} from "react";
 import * as echarts from "echarts";
 import {GeneContext} from "../../pages/popGateway/popPage/[gene_id]";
 //引入jquery
-import $ from 'jquery';
 import {LoadingOutlined} from "@ant-design/icons";
 
 export default function BoxPlot(){
@@ -13,15 +12,14 @@ export default function BoxPlot(){
     const RNAIds = geneContext.RNAIds
     const thetaPiRhesusBackGround
         = geneContext.thetaPiRhesusBackGround
+    const xLabels = ["UTR","Exon","Intron","Intergenic","CDS","Synonmous","Npnsynonmous"]
 
     // 定义渲染函数
     function renderChart() {
         try {
-            let option
-                = {
+            let option = {
                 dataset: [
                     {
-                        id: 'raw',
                         source: [
                             thetaPiRhesusBackGround.thetaUtr,
                             thetaPiRhesusBackGround.thetaExon,
@@ -33,19 +31,14 @@ export default function BoxPlot(){
                         ]
                     },
                     {
-                        transform: [
+                        transform:
                             {
                                 type: 'boxplot',
-                                config: { itemNameFormatter: 'expr {value}' }
-                            },
-                            {
-                                type: 'sort',
-                                config: {
-                                    dimension: 'median',
-                                    order: 'desc'
-                                }
+                                config:{
+                                    itemNameFormatter: '{value}'
+                                },
+                                print: true
                             }
-                        ]
                     },
                     {
                         fromDatasetIndex: 1,
@@ -53,7 +46,7 @@ export default function BoxPlot(){
                     }
                 ],
                 tooltip: {
-                    trigger: 'axis',
+                    trigger: 'item',
                     confine: true
                 },
                 yAxis: {
@@ -86,12 +79,13 @@ export default function BoxPlot(){
                 },
                 series: [
                     {
-                        name: 'Boxplot',
+                        name: 'boxplot',
                         type: 'boxplot',
-                        datasetId: 1,
+                        datasetIndex: 1,
                         boxWidth:"50%",
                         itemStyle: {
-                            color: '#b8c5f2'
+                            color: '#b9e3ba',
+                            borderColor: '#254000',
                         },
                     }
                 ]

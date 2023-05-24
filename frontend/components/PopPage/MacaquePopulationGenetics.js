@@ -8,6 +8,9 @@ import BoxPlot from "./BoxPlot";
 const { Panel } = Collapse;
 
 export default function MacaquePopulationGenetics(){
+    const geneContext = useContext(GeneContext);
+    const thetaPiRhesusBackGround
+        = geneContext.thetaPiRhesusBackGround
     return(
         <div name={"Macaque"}>
             <Divider orientation="left" orientationMargin="0">
@@ -17,7 +20,12 @@ export default function MacaquePopulationGenetics(){
                 </Link>
             </Divider>
             <a id={"Macaque"} style={{position: 'relative', top: "-150px"}}></a>
-            <BoxPlot/>
+            {   thetaPiRhesusBackGround.thetaUtr.length === 0 ?
+                <div style={{textAlign:"center"}}>
+                    <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                </div>:
+                <BoxPlot/>
+            }
         </div>
     )
 }

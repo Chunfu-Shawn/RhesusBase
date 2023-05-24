@@ -46,13 +46,14 @@ export const GeneContext = React.createContext({});
 export default function PopPage(props) {
     const divContent = useRef(null)
     const [thetaPiRhesusBackGround,setThetaPiRhesusBackGround] = useState([])
-    const thetaUtr = []
-    const thetaExon = []
-    const thetaIntron = []
-    const thetaIntergenic = []
-    const thetaCds = []
-    const thetaSynonmous = []
-    const thetaNonsynonmous = []
+    const [thetaUtr,setThetaUtr] = useState([])
+    const [thetaExon,setThetaExon] = useState([])
+    const [thetaIntron,setThetaIntron] = useState([])
+    const [thetaIntergenic,setThetaIntergenic] = useState([])
+    const [thetaCds,setThetaCds] = useState([])
+    const [thetaSynonmous,setThetaSynonmous] = useState([])
+    const [thetaNonsynonmous,setThetaNonsynonmous] = useState([])
+
 
     const fetchData = async () => {
         // load Theta Pi Rhesus Background
@@ -60,6 +61,13 @@ export default function PopPage(props) {
             .then(res => res.json())
             .then(data => {
                 setThetaPiRhesusBackGround(data)
+                let thetaUtr = []
+                let thetaExon = []
+                let thetaIntron = []
+                let thetaIntergenic = []
+                let thetaCds = []
+                let thetaSynonmous = []
+                let thetaNonsynonmous = []
                 data.forEach(item => {
                     if(item.utrTheta !== "NA") return thetaUtr.push(item.utrTheta)
                 })
@@ -81,12 +89,20 @@ export default function PopPage(props) {
                 data.forEach(item => {
                     if(item.nsynTheta !== "NA") return thetaNonsynonmous.push(item.nsynTheta)
                 })
+                setThetaUtr(thetaUtr)
+                setThetaExon(thetaExon)
+                setThetaIntron(thetaIntron)
+                setThetaIntergenic(thetaIntergenic)
+                setThetaCds(thetaCds)
+                setThetaSynonmous(thetaSynonmous)
+                setThetaNonsynonmous(thetaNonsynonmous)
             })
     };
 
     useEffect(() => {
         fetchData()
     }, []);
+
     return (
         <LayoutCustom>
             <Head>
