@@ -31,51 +31,12 @@ export async function getServerSideProps(context) {
     const RNAIds = await getEnsRNAID(entrezID)
     const thetaPiRhesus = await getThetaPiRhesus(RNAIds.map(item=>"'"+item+"'").join(','))
     const thetaPiRhesusBackGround = await getThetaPiRhesusBackGround()
-    const thetaUtr = []
-    const thetaExon = []
-    const thetaIntron = []
-    const thetaIntergenic = []
-    const thetaCds = []
-    const thetaSynonmous = []
-    const thetaNonsynonmous = []
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.utrTheta !== "NA") return thetaUtr.push(item.utrTheta)
-        })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.exonTheta !== "NA") return thetaExon.push(item.exonTheta)
-    })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.intronTheta !== "NA") return thetaIntron.push(item.intronTheta)
-    })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.intergenicTheta !== "NA") return thetaIntergenic.push(item.intergenicTheta)
-    })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.cdsTheta !== "NA") return thetaCds.push(item.cdsTheta)
-    })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.synTheta !== "NA") return thetaSynonmous.push(item.synTheta)
-    })
-    thetaPiRhesusBackGround.forEach(item => {
-        if(item.nsynTheta !== "NA") return thetaNonsynonmous.push(item.nsynTheta)
-    })
 
     // Pass post data to the page via props
     return {
         props: {
             data: geneInfo[0],
             RNAIds:RNAIds,
-            thetaPiRhesus:thetaPiRhesus,
-            thetaPiRhesusBackGround:{
-                thetaUtr: thetaUtr,
-                thetaExon: thetaExon,
-                thetaIntron: thetaIntron,
-                thetaIntergenic:thetaIntergenic,
-                thetaCds:thetaCds,
-                thetaSynonmous:thetaSynonmous,
-                thetaNonsynonmous:thetaNonsynonmous
-            }
-
         }
     }
 }
@@ -84,6 +45,48 @@ export const GeneContext = React.createContext({});
 
 export default function PopPage(props) {
     const divContent = useRef(null)
+    const [thetaPiRhesusBackGround,setThetaPiRhesusBackGround] = useState([])
+    const thetaUtr = []
+    const thetaExon = []
+    const thetaIntron = []
+    const thetaIntergenic = []
+    const thetaCds = []
+    const thetaSynonmous = []
+    const thetaNonsynonmous = []
+
+    const fetchData = async () => {
+        // load Theta Pi Rhesus Background
+        fetch("/api/thetaPiRhesusBackground")
+            .then(res => res.json())
+            .then(data => {
+                setThetaPiRhesusBackGround(data)
+                data.forEach(item => {
+                    if(item.utrTheta !== "NA") return thetaUtr.push(item.utrTheta)
+                })
+                data.forEach(item => {
+                    if(item.exonTheta !== "NA") return thetaExon.push(item.exonTheta)
+                })
+                data.forEach(item => {
+                    if(item.intronTheta !== "NA") return thetaIntron.push(item.intronTheta)
+                })
+                data.forEach(item => {
+                    if(item.intergenicTheta !== "NA") return thetaIntergenic.push(item.intergenicTheta)
+                })
+                data.forEach(item => {
+                    if(item.cdsTheta !== "NA") return thetaCds.push(item.cdsTheta)
+                })
+                data.forEach(item => {
+                    if(item.synTheta !== "NA") return thetaSynonmous.push(item.synTheta)
+                })
+                data.forEach(item => {
+                    if(item.nsynTheta !== "NA") return thetaNonsynonmous.push(item.nsynTheta)
+                })
+            })
+    };
+
+    useEffect(() => {
+        fetchData()
+    }, []);
     return (
         <LayoutCustom>
             <Head>
@@ -92,6 +95,15 @@ export default function PopPage(props) {
             <GeneContext.Provider value={
                 {
                     ...props,
+                    thetaPiRhesusBackGround: {
+                        thetaUtr: thetaUtr,
+                        thetaExon: thetaExon,
+                        thetaIntron: thetaIntron,
+                        thetaIntergenic: thetaIntergenic,
+                        thetaCds: thetaCds,
+                        thetaSynonmous: thetaSynonmous,
+                        thetaNonsynonmous: thetaNonsynonmous
+                    }
                 }
             }>
                 <div
