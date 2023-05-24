@@ -14,7 +14,7 @@ export default function Summary(){
         <div name={"Summary"}>
             <a id={"Summary"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <b>Summary </b>
+                <b style={{fontSize:19}}>Summary </b>
                 <Link href={'/help/manual/search#annotation'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>

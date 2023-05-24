@@ -2,12 +2,15 @@ import Head from 'next/head'
 import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
 import {Affix, Col, Row, Tag, Space} from 'antd';
 import React, {useRef, useEffect, useState} from "react";
-import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
-import Summary from "../../../components/GenePage/Summary.js";
-import Features from "../../../components/GenePage/Features.js";
-import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
-import Download from "../../../components/GenePage/Download.js";
+import PopPageSiderMenu from "../../../components/PopPage/PopPageSiderMenu.js";
+import Summary from "../../../components/PopPage/Summary.js";
 import {getGeneList} from "../../../../libs/mysql/getGeneList";
+import MacaquePopulationGenetics from "../../../components/PopPage/MacaquePopulationGenetics";
+import HumanPopulationGenetics from "../../../components/PopPage/HumanPopulationGenetics";
+import McDonaldKreitmanTest from "../../../components/PopPage/McDonaldKreitmanTest";
+import {getEnsRNAID} from "../../../../libs/mysql/getEnsRNAID";
+import {getThetaPiRhesus} from "../../../../libs/mysql/getThetaPiRhesus";
+import {getThetaPiRhesusBackGround} from "../../../../libs/mysql/getThetaPiRhesusBackGround";
 
 export async function getServerSideProps(context) {
     const entrezID= context.params.gene_id
@@ -17,18 +20,62 @@ export async function getServerSideProps(context) {
         }
     }
 
+    // get gene information
     const geneInfo = await getGeneList("entrezID",entrezID)
-
     if ( geneInfo.length === 0 ) {
         return {
             notFound: true,
         }
     }
 
+    const RNAIds = await getEnsRNAID(entrezID)
+    const thetaPiRhesus = await getThetaPiRhesus(RNAIds.map(item=>"'"+item+"'").join(','))
+    const thetaPiRhesusBackGround = await getThetaPiRhesusBackGround()
+    const thetaUtr = []
+    const thetaExon = []
+    const thetaIntron = []
+    const thetaIntergenic = []
+    const thetaCds = []
+    const thetaSynonmous = []
+    const thetaNonsynonmous = []
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.utrTheta !== "NA") return thetaUtr.push(item.utrTheta)
+        })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.exonTheta !== "NA") return thetaExon.push(item.exonTheta)
+    })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.intronTheta !== "NA") return thetaIntron.push(item.intronTheta)
+    })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.intergenicTheta !== "NA") return thetaIntergenic.push(item.intergenicTheta)
+    })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.cdsTheta !== "NA") return thetaCds.push(item.cdsTheta)
+    })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.synTheta !== "NA") return thetaSynonmous.push(item.synTheta)
+    })
+    thetaPiRhesusBackGround.forEach(item => {
+        if(item.nsynTheta !== "NA") return thetaNonsynonmous.push(item.nsynTheta)
+    })
+
     // Pass post data to the page via props
     return {
         props: {
-            data: geneInfo[0]
+            data: geneInfo[0],
+            RNAIds:RNAIds,
+            thetaPiRhesus:thetaPiRhesus,
+            thetaPiRhesusBackGround:{
+                thetaUtr: thetaUtr,
+                thetaExon: thetaExon,
+                thetaIntron: thetaIntron,
+                thetaIntergenic:thetaIntergenic,
+                thetaCds:thetaCds,
+                thetaSynonmous:thetaSynonmous,
+                thetaNonsynonmous:thetaNonsynonmous
+            }
+
         }
     }
 }
@@ -36,7 +83,7 @@ export async function getServerSideProps(context) {
 export const GeneContext = React.createContext({});
 
 export default function PopPage(props) {
-
+    const divContent = useRef(null)
     return (
         <LayoutCustom>
             <Head>
@@ -53,7 +100,7 @@ export default function PopPage(props) {
                     <Row style={{width:"100%"}}>
                         <Col span={5}>
                             <Affix offsetTop={120}>
-                                <GenePageSiderMenu divContent={divContent}/>
+                                <PopPageSiderMenu divContent={divContent}/>
                             </Affix>
                         </Col>
                         <Col span={19}>
@@ -62,12 +109,15 @@ export default function PopPage(props) {
                                 <div key={"gene_name"}>
                                     <Row align="bottom" style={{marginBottom:10}}>
                                         <Space>
-                                            <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
-                                            <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.entrezID}</span>
+                                            <span style={{fontSize:22,fontWeight:"bold",marginRight:10,color:"green"}}>{props.data.symbol}</span>
+                                            <span style={{fontSize:16,fontWeight:"bold",color:"gray"}}> {props.data.entrezID}</span>
                                         </Space>
                                     </Row>
                                 </div>
                                 <Summary/>
+                                <MacaquePopulationGenetics/>
+                                <HumanPopulationGenetics/>
+                                <McDonaldKreitmanTest/>
                             </div>
                         </Col>
                     </Row>
