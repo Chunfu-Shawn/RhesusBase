@@ -1,7 +1,7 @@
 import {Divider, Space, Table, Tag} from "antd";
 import {useState} from "react";
 import {QuestionCircleFilled} from "@ant-design/icons";
-import Link from "next/link.js";
+import Link from "next/link";
 
 
 export default function SearchResultsTable(props){
