@@ -17,41 +17,46 @@ export default function BoxPlot(){
     // 定义渲染函数
     function renderChart() {
         try {
+            let sourceData = []
+            thetaPiRhesusBackGround.thetaUtr.forEach(item => sourceData.push(["UTR",item]))
+            thetaPiRhesusBackGround.thetaExon.forEach(item => sourceData.push(["Exon",item]))
+            thetaPiRhesusBackGround.thetaIntron.forEach(item => sourceData.push(["Intron",item]))
+            sourceData.unshift(["type","rate"])
+            echarts.registerTransform(ecSimpleTransform.aggregate);
             let option = {
                 dataset: [
                     {
-                        source: [
-                            thetaPiRhesusBackGround.thetaUtr,
-                            thetaPiRhesusBackGround.thetaExon,
-                            thetaPiRhesusBackGround.thetaIntron,
-                            thetaPiRhesusBackGround.thetaIntergenic,
-                            thetaPiRhesusBackGround.thetaCds,
-                            thetaPiRhesusBackGround.thetaSynonmous,
-                            thetaPiRhesusBackGround.thetaNonsynonmous
-                        ]
+                        id: 'raw',
+                        source: sourceData
                     },
                     {
-                        transform:
+                        id: 'rate_aggregate',
+                        fromDatasetId: 'raw',
+                        transform: [
                             {
-                                type: 'boxplot',
-                                config:{
-                                    itemNameFormatter: '{value}'
-                                },
-                                print: true
+                                type: 'ecSimpleTransform:aggregate',
+                                config: {
+                                    resultDimensions: [
+                                        {name: 'min', from: 'rank_score', method: 'min'},
+                                        {name: 'Q1', from: 'rank_score', method: 'Q1'},
+                                        {name: 'median', from: 'rank_score', method: 'median'},
+                                        {name: 'Q3', from: 'rank_score', method: 'Q3'},
+                                        {name: 'max', from: 'rank_score', method: 'max'},
+                                        {name: 'organ_tissue', from: 'organ_tissue'}
+                                    ],
+                                    groupBy: 'type'
+                                }
                             }
-                    },
-                    {
-                        fromDatasetIndex: 1,
-                        fromTransformResult: 1
+                        ]
                     }
                 ],
                 tooltip: {
-                    trigger: 'item',
+                    trigger: 'axis',
                     confine: true
                 },
                 yAxis: {
                     type: 'value',
-                    name: 'Population Mutation Rate',
+                    name: 'Rate',
                 },
                 xAxis: {
                     type: 'category',
@@ -79,14 +84,19 @@ export default function BoxPlot(){
                 },
                 series: [
                     {
-                        name: 'boxplot',
+                        name: 'Boxplot',
                         type: 'boxplot',
-                        datasetIndex: 1,
+                        datasetId: 'rate_aggregate',
                         boxWidth:"50%",
                         itemStyle: {
-                            color: '#b9e3ba',
-                            borderColor: '#254000',
+                            color: '#b8c5f2'
                         },
+                        encode: {
+                            y: ['min', 'Q1', 'median', 'Q3', 'max'],
+                            x: 'type',
+                            itemName: ['type'],
+                            tooltip: ['min', 'Q1', 'median', 'Q3', 'max']
+                        }
                     }
                 ]
             }
