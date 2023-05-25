@@ -24,7 +24,14 @@ export default function MacaquePopulationGenetics(){
                 <div style={{textAlign:"center"}}>
                     <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
                 </div>:
-                <BoxPlot/>
+                <Row>
+                    <Col>
+                        <BoxPlot/>
+                    </Col>
+                    <Col>
+                        <BoxPlot/>
+                    </Col>
+                </Row>
             }
         </div>
     )

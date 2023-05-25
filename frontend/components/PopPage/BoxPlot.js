@@ -1,9 +1,6 @@
 import React, {useContext, useEffect, useRef} from "react";
 import * as echarts from "echarts";
 import {GeneContext} from "../../pages/popGateway/popPage/[gene_id]";
-//引入jquery
-import $ from 'jquery';
-import {LoadingOutlined} from "@ant-design/icons";
 
 export default function BoxPlot(){
     // use echarts
@@ -13,7 +10,7 @@ export default function BoxPlot(){
     const RNAIds = geneContext.RNAIds
     const thetaPiRhesusBackGround
         = geneContext.thetaPiRhesusBackGround
-    const xLabels = ["UTR","Exon","Intron","Intergenic","CDS","Synonmous","Npnsynonmous"]
+    const xLabels = ["Synonmous","Npnsynonmous","CDS","UTR","Exon","Intron","Intergenic"]
 
     // 定义渲染函数
     function renderChart() {
@@ -24,13 +21,13 @@ export default function BoxPlot(){
                     {
                         id: 'raw',
                         source: [
+                            thetaPiRhesusBackGround.thetaSynonmous,
+                            thetaPiRhesusBackGround.thetaNonsynonmous,
+                            thetaPiRhesusBackGround.thetaCds,
                             thetaPiRhesusBackGround.thetaUtr,
                             thetaPiRhesusBackGround.thetaExon,
                             thetaPiRhesusBackGround.thetaIntron,
                             thetaPiRhesusBackGround.thetaIntergenic,
-                            thetaPiRhesusBackGround.thetaCds,
-                            thetaPiRhesusBackGround.thetaSynonmous,
-                            thetaPiRhesusBackGround.thetaNonsynonmous
                         ]
                     },
                     {
@@ -42,13 +39,6 @@ export default function BoxPlot(){
                                         return xLabels[params.value]
                                     }
                                 }
-                            },
-                            {
-                                type: 'sort',
-                                config: {
-                                    dimension: 'median',
-                                    order: 'desc'
-                                }
                             }
                         ]
                     },
@@ -57,13 +47,16 @@ export default function BoxPlot(){
                         fromTransformResult: 1
                     }
                 ],
-                tooltip: {
-                    trigger: 'axis',
-                    confine: true
-                },
                 yAxis: {
                     type: 'value',
                     name: 'Population Mutation Rate',
+                    position: 'left',
+                    nameGap: 50,
+                    nameLocation: "middle",
+                    nameTextStyle:{
+                        fontSize: 14,
+                        fontWeight: "bolder"
+                    }
                 },
                 xAxis: {
                     type: 'category',
@@ -84,19 +77,26 @@ export default function BoxPlot(){
                     }
                 },
                 grid: {
-                    bottom: 120
+                    containLabel: true,
+                    left: 25
                 },
                 legend: {
                     selected: {detail: true}
                 },
                 series: [
                     {
-                        name: 'Boxplot',
+                        name: 'Background',
                         type: 'boxplot',
-                        datasetId: 1,
+                        datasetIndex: 1,
                         boxWidth:"50%",
+                        silent: true, // 禁止鼠标事件，不会触发高亮效果
+                        tooltip: {
+                            show: false,
+                            triggerOn: 'none',
+                        },
                         itemStyle: {
-                            color: '#b8c5f2'
+                            color: '#a0b286',
+                            borderColor: '#43690f'
                         },
                     }
                 ]
@@ -123,6 +123,6 @@ export default function BoxPlot(){
     },[thetaPiRhesusBackGround])
 
     return(
-        <div ref={chartRef} style={{height:600,marginBottom:10,textAlign:"center"}}></div>
+        <div ref={chartRef} style={{height:400,width:530,marginBottom:10,textAlign:"center"}}></div>
     )
 }
