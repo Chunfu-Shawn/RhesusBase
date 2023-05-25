@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useRef} from "react";
 import * as echarts from "echarts";
 import {GeneContext} from "../../pages/popGateway/popPage/[gene_id]";
 //引入jquery
+import $ from 'jquery';
 import {LoadingOutlined} from "@ant-design/icons";
 
 export default function BoxPlot(){
@@ -17,37 +18,43 @@ export default function BoxPlot(){
     // 定义渲染函数
     function renderChart() {
         try {
-            let sourceData = []
-            thetaPiRhesusBackGround.thetaUtr.forEach(item => sourceData.push(["UTR",item]))
-            thetaPiRhesusBackGround.thetaExon.forEach(item => sourceData.push(["Exon",item]))
-            thetaPiRhesusBackGround.thetaIntron.forEach(item => sourceData.push(["Intron",item]))
-            sourceData.unshift(["type","rate"])
-            echarts.registerTransform(ecSimpleTransform.aggregate);
-            let option = {
+            let option
+                = {
                 dataset: [
                     {
                         id: 'raw',
-                        source: sourceData
+                        source: [
+                            thetaPiRhesusBackGround.thetaUtr,
+                            thetaPiRhesusBackGround.thetaExon,
+                            thetaPiRhesusBackGround.thetaIntron,
+                            thetaPiRhesusBackGround.thetaIntergenic,
+                            thetaPiRhesusBackGround.thetaCds,
+                            thetaPiRhesusBackGround.thetaSynonmous,
+                            thetaPiRhesusBackGround.thetaNonsynonmous
+                        ]
                     },
                     {
-                        id: 'rate_aggregate',
-                        fromDatasetId: 'raw',
                         transform: [
                             {
-                                type: 'ecSimpleTransform:aggregate',
+                                type: 'boxplot',
                                 config: {
-                                    resultDimensions: [
-                                        {name: 'min', from: 'rank_score', method: 'min'},
-                                        {name: 'Q1', from: 'rank_score', method: 'Q1'},
-                                        {name: 'median', from: 'rank_score', method: 'median'},
-                                        {name: 'Q3', from: 'rank_score', method: 'Q3'},
-                                        {name: 'max', from: 'rank_score', method: 'max'},
-                                        {name: 'organ_tissue', from: 'organ_tissue'}
-                                    ],
-                                    groupBy: 'type'
+                                    itemNameFormatter: function (params) {
+                                        return xLabels[params.value]
+                                    }
+                                }
+                            },
+                            {
+                                type: 'sort',
+                                config: {
+                                    dimension: 'median',
+                                    order: 'desc'
                                 }
                             }
                         ]
+                    },
+                    {
+                        fromDatasetIndex: 1,
+                        fromTransformResult: 1
                     }
                 ],
                 tooltip: {
@@ -56,7 +63,7 @@ export default function BoxPlot(){
                 },
                 yAxis: {
                     type: 'value',
-                    name: 'Rate',
+                    name: 'Population Mutation Rate',
                 },
                 xAxis: {
                     type: 'category',
@@ -86,17 +93,11 @@ export default function BoxPlot(){
                     {
                         name: 'Boxplot',
                         type: 'boxplot',
-                        datasetId: 'rate_aggregate',
+                        datasetId: 1,
                         boxWidth:"50%",
                         itemStyle: {
                             color: '#b8c5f2'
                         },
-                        encode: {
-                            y: ['min', 'Q1', 'median', 'Q3', 'max'],
-                            x: 'type',
-                            itemName: ['type'],
-                            tooltip: ['min', 'Q1', 'median', 'Q3', 'max']
-                        }
                     }
                 ]
             }
