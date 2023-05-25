@@ -1,15 +1,11 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import * as echarts from "echarts";
-import {GeneContext} from "../../pages/popGateway/popPage/[gene_id]";
 
-export default function BoxPlot(){
+export default function BoxPlot(props){
+    const {background, target, yName} = props
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
-    const geneContext = useContext(GeneContext);
-    const RNAIds = geneContext.RNAIds
-    const thetaPiRhesusBackGround
-        = geneContext.thetaPiRhesusBackGround
     const xLabels = ["Synonmous","Npnsynonmous","CDS","UTR","Exon","Intron","Intergenic"]
 
     // 定义渲染函数
@@ -20,15 +16,7 @@ export default function BoxPlot(){
                 dataset: [
                     {
                         id: 'raw',
-                        source: [
-                            thetaPiRhesusBackGround.thetaSynonmous,
-                            thetaPiRhesusBackGround.thetaNonsynonmous,
-                            thetaPiRhesusBackGround.thetaCds,
-                            thetaPiRhesusBackGround.thetaUtr,
-                            thetaPiRhesusBackGround.thetaExon,
-                            thetaPiRhesusBackGround.thetaIntron,
-                            thetaPiRhesusBackGround.thetaIntergenic,
-                        ]
+                        source: background
                     },
                     {
                         transform: [
@@ -49,7 +37,7 @@ export default function BoxPlot(){
                 ],
                 yAxis: {
                     type: 'value',
-                    name: 'Population Mutation Rate',
+                    name: yName,
                     position: 'left',
                     nameGap: 50,
                     nameLocation: "middle",
@@ -78,7 +66,8 @@ export default function BoxPlot(){
                 },
                 grid: {
                     containLabel: true,
-                    left: 25
+                    left: 25,
+                    bottom: 0
                 },
                 legend: {
                     selected: {detail: true}
@@ -120,9 +109,9 @@ export default function BoxPlot(){
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose()
         }
-    },[thetaPiRhesusBackGround])
+    },[background])
 
     return(
-        <div ref={chartRef} style={{height:400,width:530,marginBottom:10,textAlign:"center"}}></div>
+        <div ref={chartRef} style={{height:350,width:530,marginBottom:10,textAlign:"center"}}></div>
     )
 }

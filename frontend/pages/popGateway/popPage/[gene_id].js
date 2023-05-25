@@ -4,13 +4,13 @@ import {Affix, Col, Row, Tag, Space} from 'antd';
 import React, {useRef, useEffect, useState} from "react";
 import PopPageSiderMenu from "../../../components/PopPage/PopPageSiderMenu.js";
 import Summary from "../../../components/PopPage/Summary.js";
-import {getGeneList} from "../../../../libs/mysql/getGeneList";
+import {getGeneInfo} from "../../../../libs/mysql/getGeneInfo";
 import MacaquePopulationGenetics from "../../../components/PopPage/MacaquePopulationGenetics";
 import HumanPopulationGenetics from "../../../components/PopPage/HumanPopulationGenetics";
 import McDonaldKreitmanTest from "../../../components/PopPage/McDonaldKreitmanTest";
 import {getEnsRNAID} from "../../../../libs/mysql/getEnsRNAID";
 import {getThetaPiRhesus} from "../../../../libs/mysql/getThetaPiRhesus";
-import {getThetaPiRhesusBackGround} from "../../../../libs/mysql/getThetaPiRhesusBackGround";
+
 
 export async function getServerSideProps(context) {
     const entrezID= context.params.gene_id
@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
     }
 
     // get gene information
-    const geneInfo = await getGeneList("entrezID",entrezID)
+    const geneInfo = await getGeneInfo(entrezID)
     if ( geneInfo.length === 0 ) {
         return {
             notFound: true,
@@ -30,7 +30,6 @@ export async function getServerSideProps(context) {
 
     const RNAIds = await getEnsRNAID(entrezID)
     const thetaPiRhesus = await getThetaPiRhesus(RNAIds.map(item=>"'"+item+"'").join(','))
-    const thetaPiRhesusBackGround = await getThetaPiRhesusBackGround()
 
     // Pass post data to the page via props
     return {
@@ -45,63 +44,6 @@ export const GeneContext = React.createContext({});
 
 export default function PopPage(props) {
     const divContent = useRef(null)
-    const [thetaPiRhesusBackGround,setThetaPiRhesusBackGround] = useState([])
-    const [thetaUtr,setThetaUtr] = useState([])
-    const [thetaExon,setThetaExon] = useState([])
-    const [thetaIntron,setThetaIntron] = useState([])
-    const [thetaIntergenic,setThetaIntergenic] = useState([])
-    const [thetaCds,setThetaCds] = useState([])
-    const [thetaSynonmous,setThetaSynonmous] = useState([])
-    const [thetaNonsynonmous,setThetaNonsynonmous] = useState([])
-
-
-    const fetchData = async () => {
-        // load Theta Pi Rhesus Background
-        fetch("/api/thetaPiRhesusBackground")
-            .then(res => res.json())
-            .then(data => {
-                setThetaPiRhesusBackGround(data)
-                let thetaUtr = []
-                let thetaExon = []
-                let thetaIntron = []
-                let thetaIntergenic = []
-                let thetaCds = []
-                let thetaSynonmous = []
-                let thetaNonsynonmous = []
-                data.forEach(item => {
-                    if(item.utrTheta !== "NA") return thetaUtr.push(item.utrTheta)
-                })
-                data.forEach(item => {
-                    if(item.exonTheta !== "NA") return thetaExon.push(item.exonTheta)
-                })
-                data.forEach(item => {
-                    if(item.intronTheta !== "NA") return thetaIntron.push(item.intronTheta)
-                })
-                data.forEach(item => {
-                    if(item.intergenicTheta !== "NA") return thetaIntergenic.push(item.intergenicTheta)
-                })
-                data.forEach(item => {
-                    if(item.cdsTheta !== "NA") return thetaCds.push(item.cdsTheta)
-                })
-                data.forEach(item => {
-                    if(item.synTheta !== "NA") return thetaSynonmous.push(item.synTheta)
-                })
-                data.forEach(item => {
-                    if(item.nsynTheta !== "NA") return thetaNonsynonmous.push(item.nsynTheta)
-                })
-                setThetaUtr(thetaUtr)
-                setThetaExon(thetaExon)
-                setThetaIntron(thetaIntron)
-                setThetaIntergenic(thetaIntergenic)
-                setThetaCds(thetaCds)
-                setThetaSynonmous(thetaSynonmous)
-                setThetaNonsynonmous(thetaNonsynonmous)
-            })
-    };
-
-    useEffect(() => {
-        fetchData()
-    }, []);
 
     return (
         <LayoutCustom>
@@ -111,15 +53,6 @@ export default function PopPage(props) {
             <GeneContext.Provider value={
                 {
                     ...props,
-                    thetaPiRhesusBackGround: {
-                        thetaUtr: thetaUtr,
-                        thetaExon: thetaExon,
-                        thetaIntron: thetaIntron,
-                        thetaIntergenic: thetaIntergenic,
-                        thetaCds: thetaCds,
-                        thetaSynonmous: thetaSynonmous,
-                        thetaNonsynonmous: thetaNonsynonmous
-                    }
                 }
             }>
                 <div

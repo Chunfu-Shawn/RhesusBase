@@ -4,6 +4,7 @@ import {getGeneList} from "./mysql/getGeneList.js";
 import {getEnsRNAID} from "./mysql/getEnsRNAID.js";
 import {getThetaPiRhesus} from "./mysql/getThetaPiRhesus.js";
 import {getThetaPiRhesusBackGround} from "./mysql/getThetaPiRhesusBackGround.js";
+import {getRefseq} from "./mysql/getRefseq.js";
 
 
 export const RouterAPI = router()
@@ -14,6 +15,10 @@ RouterAPI.get('/api/geneList/:searchFor/:keyword', async (ctx) => {
 
 RouterAPI.get('/api/ensRNAID/:entrezID', async (ctx) => {
     ctx.body = await getEnsRNAID(ctx.params.entrezID)
+})
+
+RouterAPI.get('/api/refseq/:entrezID', async (ctx) => {
+    ctx.body = await getRefseq(ctx.params.entrezID)
 })
 
 RouterAPI.get('/api/thetaPiRhesus/:RNAIds', async (ctx) => {
