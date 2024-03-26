@@ -1,31 +1,25 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Space, Table} from 'antd';
 import {Divider} from 'antd';
+import {LoadingOutlined} from "@ant-design/icons";
 
-export async function getServerSideProps() {
-    const res = await fetch("https://resource.rhesusbase.com/files/gene_corresponding_table.json")
-    // 取搜索结果数组中的第一个结果
-    const data = await res.json()
-    let key = 1
+export default function Denovo() {
+    const [denovoGeneTable, setDenovoGeneTable] = useState([]);
+    const [tableLoading, setTableLoading] = useState(true);
+    const fetchData = async () => {
+        // get denovo gene correspoding table
+        fetch("https://resource.rhesusbase.com/files/gene_corresponding_table.json")
+            .then(res => res.json())
+            .then(data => setDenovoGeneTable(data))
+            .then(() => setTableLoading(false))
+    };
 
-    return {
-        props: {
-            data:data.map(item => {
-                return {
-                    key: key++,
-                    gene_id_hg19: item.gene_id_hg19,
-                    transcript_id_hg19: item.transcript_id_hg19,
-                    gene_id_hg38: item.gene_id_hg38,
-                    gene_name: item.gene_name,
-                    transcript_id_hg38: item.transcript_id_hg38,
-                }
-            }),
-        }
-    }
-}
-export default function Denovo(props) {
+    useEffect(() => {
+        fetchData()
+    }, []);
+
     const columns =[
         {
             title: 'Gene ID (hg19)',
@@ -103,14 +97,19 @@ export default function Denovo(props) {
                     <h1><i>De novo</i> genes</h1>
                 </header>
                 <Divider></Divider>
-                <Table
-                    dataSource={
-                    props.data.map(data => {
-                        return {key: data.gene_id_hg38, ...data}
-                    })}
-                    columns={columns}
-                    size={"small"}
-                />
+                {tableLoading === true ?
+                    <div style={{textAlign:"center"}}>
+                        <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                    </div>:
+                    <Table
+                        dataSource={
+                            denovoGeneTable.map(item => {
+                                return {key: item.gene_id_hg38, ...item}
+                            })}
+                        columns={columns}
+                        size={"small"}
+                    />
+                }
             </div>
         </LayoutCustom>
     )
