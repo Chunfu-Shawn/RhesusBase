@@ -60,11 +60,10 @@ export default function Navigator(){
                 </div>
                 <ul className={"nav navbar-nav"} >
                     <li id="stellaris" className="nav-item"><Link href="https://spatial.rhesusbase.com"><a className="nav-link">STellaris</a></Link></li>
-                    <li id="browser" className="nav-item"><Link href="https://browser.rhesusbase.com"><a className="nav-link">Genome Browser</a></Link></li>
+                    <li id="denovo" className="nav-item"><Link href="/denovo"><a className="nav-link"><i>De novo</i> genes</a></Link></li>
                     <li id="molEvo" className="nav-item"><Link href="/molEvo"><a className="nav-link">Molecular Evolution</a></Link></li>
                     <li id="popGateway" className="nav-item"><Link href="/popGateway"><a className="nav-link">Population Genetics</a></Link></li>
                     <li id="downloads" className="nav-item"><Link href="/downloads"><a className="nav-link">Downloads</a></Link></li>
-                    <li id="help" className="nav-item"><Link href="/help/manual/mapping"><a className="nav-link">Help</a></Link></li>
                     <li id="contact" className="nav-item"><Link href="/contact"><a className="nav-link" >Contact</a></Link></li>
                 </ul>
                 <div style={{float:"right",padding: '25px'}}>

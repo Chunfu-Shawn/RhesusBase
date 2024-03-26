@@ -58,22 +58,6 @@ export default function Contact() {
                         driving human-specific evolution.
                     </p>
                 </div>
-                <Divider><h2>Development Team</h2></Divider>
-                <List
-                    itemLayout="horizontal"
-                    dataSource={data}
-                    size={"large"}
-                    renderItem={(item) => (
-                        <List.Item>
-                            <List.Item.Meta
-                                avatar={<Avatar shape="square" size={"large"} src={item.avatar} />}
-                                title={<b>{item.name}</b>}
-                                description={item.description}
-                            />
-                        </List.Item>
-                    )}
-                    style={{width:700, textAlign:"left",margin:"auto",marginBottom:50}}
-                />
                 <Divider><h2>Feedback</h2></Divider>
                 <h4>Please feel free to contact us with any questions or comments.</h4>
                 <span style={{fontSize:16}}>
@@ -84,9 +68,9 @@ export default function Contact() {
                     <br/><br/>
                     For any suggestions or ideas, please email to the corresponding author:
                     <br/>
-                    <b>Wanqiu Ding:&nbsp;&nbsp;
-                        <a target="_blank"  href="mailto:dingwq@pku.edu.cn" rel="noreferrer">
-                            <MailFilled /> dingwq@pku.edu.cn
+                    <b>Chuanyun Li:&nbsp;&nbsp;
+                        <a target="_blank"  href="mailto:chuanyunli@pku.edu.cn" rel="noreferrer">
+                            <MailFilled /> chuanyunli@pku.edu.cn
                         </a>
                     </b>
                 </span>

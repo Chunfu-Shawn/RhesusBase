@@ -44,7 +44,7 @@ export default function FooterCustom(){
                                 <MailOutlined />.
                             </a><span>  </span>
                             <a href="https://beian.miit.gov.cn/integrated/recordquery#/Integrated/recordQuery" target="_blank" id="beian" rel="noreferrer">
-                                苏ICP备2021011214号-1</a>
+                                苏ICP备2021011214号</a>
                         </Col>
                     </Row>
                 </Col>

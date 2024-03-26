@@ -19,7 +19,7 @@ export default function FooterCustom(){
                 </Col>
                 <Col span={24}>
                     <p>Copyright &copy; 2021-{String(new Date().getFullYear())}.
-                        <a href="https://future.pku.edu.cn/" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>
+                        <a href="https://future.pku.edu.cn/en/" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>
                         <a href="https://english.pku.edu.cn" target="_blank" rel="noreferrer"> Peking University. </a>
                         All Rights Reserved.
                     </p>
@@ -30,7 +30,7 @@ export default function FooterCustom(){
                         <MailOutlined />.
                     </a><span>  </span>
                     <a href="https://beian.miit.gov.cn/integrated/recordquery#/Integrated/recordQuery" target="_blank" id="beian" rel="noreferrer">
-                        苏ICP备2021011214号-1</a>
+                        苏ICP备2021011214号</a>
                 </Col>
             </Row>
         </footer>
