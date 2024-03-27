@@ -77,11 +77,11 @@ export default function Denovo() {
             key: 'ma',
             width: '15%',
             render: (text,record) => <Space align={"center"}>
-                <Button style={{width:200}}>
-                    <a href={`/denovo/maf/${record.gene_id_hg38}`} target={"_blank"} id={record.gene_id_hg38} rel={'noreferrer'}>
+                <a href={`/denovo/maf/${record.gene_id_hg38}`} target={"_blank"} id={record.gene_id_hg38} rel={'noreferrer'}>
+                    <Button style={{width:200}}>
                         View result
-                    </a>
-                </Button>
+                    </Button>
+                </a>
             </Space>
         }
     ]
