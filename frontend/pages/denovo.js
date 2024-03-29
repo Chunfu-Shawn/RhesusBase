@@ -10,7 +10,7 @@ export default function Denovo() {
     const [tableLoading, setTableLoading] = useState(true);
     const fetchData = async () => {
         // get denovo gene correspoding table
-        fetch("https://resource.rhesusbase.com/files/gene_corresponding_table.json")
+        fetch("https://resource.rhesusbase.com/files/74_denovo_genes.denovo_status.json")
             .then(res => res.json())
             .then(data => setDenovoGeneTable(data))
             .then(() => setTableLoading(false))
@@ -25,7 +25,7 @@ export default function Denovo() {
             title: 'Gene ID (hg19)',
             dataIndex: 'gene_id_hg19',
             key: 'gene_id_hg19',
-            width: '15%',
+            width: '11%',
             sorter: (a, b) => {
                 if (a.gene_id_hg19 > b.gene_id_hg19) return 1
                 else return -1
@@ -35,7 +35,8 @@ export default function Denovo() {
             title: 'Transcript ID (hg19)',
             dataIndex: 'transcript_id_hg19',
             key: 'transcript_id_hg19',
-            width: '15%',
+            width: '13%',
+            ellipsis: true,
             sorter: (a, b) => {
                 if (a.transcript_id_hg19 > b.transcript_id_hg19) return 1
                 else return -1
@@ -45,7 +46,7 @@ export default function Denovo() {
             title: 'Gene ID (hg38)',
             dataIndex: 'gene_id_hg38',
             key: 'gene_id_hg38',
-            width: '15%',
+            width: '11%',
             sorter: (a, b) => {
                 if (a.gene_id_hg38 > b.gene_id_hg38) return 1
                 else return -1
@@ -55,7 +56,7 @@ export default function Denovo() {
             title: 'Gene Name',
             dataIndex: 'gene_name',
             key: 'gene_name',
-            width:'15%',
+            width:'11%',
             sorter: (a, b) => {
                 if(a.gene_name > b.gene_name) return 1
                 else return -1
@@ -65,9 +66,39 @@ export default function Denovo() {
             title: 'Transcript ID (hg38)',
             dataIndex: 'transcript_id_hg38',
             key: 'transcript_id_hg38',
-            width: '15%',
+            width: '13%',
             sorter: (a, b) => {
                 if (a.transcript_id_hg38 > b.transcript_id_hg38) return 1
+                else return -1
+            }
+        },
+        {
+            title: 'Evolutionary Age',
+            dataIndex: 'evolutionary_age',
+            key: 'evolutionary_age',
+            width: '11%',
+            sorter: (a, b) => {
+                if (a.evolutionary_age > b.evolutionary_age) return 1
+                else return -1
+            }
+        },
+        {
+            title: 'Syntenic Age',
+            dataIndex: 'syntenic_age',
+            key: 'syntenic_age',
+            width: '9%',
+            sorter: (a, b) => {
+                if (a.syntenic_age > b.syntenic_age) return 1
+                else return -1
+            }
+        },
+        {
+            title: 'Protein Age',
+            dataIndex: 'protein_age',
+            key: 'protein_age',
+            width: '9%',
+            sorter: (a, b) => {
+                if (a.protein_age > b.protein_age) return 1
                 else return -1
             }
         },
@@ -75,10 +106,10 @@ export default function Denovo() {
             title: 'Multiple sequence alignment',
             dataIndex: 'ma',
             key: 'ma',
-            width: '15%',
+            width: '11%',
             render: (text,record) => <Space align={"center"}>
                 <a href={`/denovo/maf/${record.gene_id_hg38}`} target={"_blank"} id={record.gene_id_hg38} rel={'noreferrer'}>
-                    <Button style={{width:200}}>
+                    <Button style={{width:120}}>
                         View result
                     </Button>
                 </a>
@@ -107,7 +138,7 @@ export default function Denovo() {
                                 return {key: item.gene_id_hg38, ...item}
                             })}
                         columns={columns}
-                        size={"small"}
+                        size={"middle"}
                     />
                 }
             </div>

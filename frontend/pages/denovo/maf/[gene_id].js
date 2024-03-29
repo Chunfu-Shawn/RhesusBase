@@ -26,10 +26,6 @@ export async function getServerSideProps(context) {
 
 
 export default function DenovoMafPage(props) {
-    const [denovoGeneTable, setDenovoGeneTable] = useState([]);
-    const [geneInfo, setGeneInfo] = useState({});
-    const [tableLoading, setTableLoading] = useState(true);
-
 
     const divContent = useRef(null)
 
@@ -44,7 +40,7 @@ export default function DenovoMafPage(props) {
                 <Row style={{width:"100%"}}>
                     <Col span={19}>
                         <div ref={divContent}>
-                            <h3>Multiple Sequence Alignment Results of <i>de novo</i> Gene</h3>
+                            <h3>Multiple sequence alignment result</h3>
                             <div key={"gene_name"}>
                                 <Row align="bottom" style={{marginBottom:10}}>
                                     <Space>
