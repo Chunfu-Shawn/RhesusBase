@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
-import {Col, Row, Space, Image} from 'antd';
-import React, {useEffect, useRef, useState} from "react";
-import {LoadingOutlined} from "@ant-design/icons";
+import {Col, Row, Space, Image, Divider} from 'antd';
+import React from "react";
 
 export async function getServerSideProps(context) {
     const res = await fetch((process.env.NODE_ENV==="production"?
@@ -27,33 +26,33 @@ export async function getServerSideProps(context) {
 
 export default function DenovoMafPage(props) {
 
-    const divContent = useRef(null)
-
     return (
         <LayoutCustom>
             <Head>
                 <title>{siteTitle+"| PopPage | "+props.gene_id}</title>
             </Head>
-            <div
-                className={"modal-body-stw with-sider"}
-            >
-                <Row style={{width:"100%"}}>
-                    <Col span={19}>
-                        <div ref={divContent}>
-                            <h3>Multiple sequence alignment result</h3>
-                            <div key={"gene_name"}>
-                                <Row align="bottom" style={{marginBottom:10}}>
-                                    <Space>
-                                        <span style={{fontSize:22,fontWeight:"bold",marginRight:10,color:"green"}}>{props.gene_id_hg38}</span>
-                                        <span style={{fontSize:16,fontWeight:"bold",color:"gray"}}> {props.gene_name}</span>
-                                        <span style={{fontSize:16,fontWeight:"bold",color:"gray"}}> {props.transcript_id_hg38}</span>
-                                    </Space>
-                                </Row>
-                                <Row align="bottom" style={{marginBottom:10}}>
-                                    <Image src={"/images/popGateway.jpg"} alt={'maf.jpg'} width={900} height={500}/>
-                                </Row>
-                            </div>
-                        </div>
+            <div className={"modal-body-stw with-sider"}>
+                <h3>Multiple sequence alignment result</h3>
+                <Row align="bottom" style={{marginBottom:10}}>
+                    <Space>
+                        <span style={{fontSize:22,fontWeight:"bold",marginRight:10,color:"green"}}>{props.gene_id_hg38}</span>
+                        <span style={{fontSize:16,fontWeight:"bold",color:"gray"}}> {props.gene_name}</span>
+                        <span style={{fontSize:16,fontWeight:"bold",color:"gray"}}> {props.transcript_id_hg38}</span>
+                    </Space>
+                </Row>
+                <Divider/>
+                <Row align="top" style={{ marginBottom:10}}>
+                    <Col span={14}>
+                        <Image
+                            src={`/images/MSA_77_denovo/${props.gene_id_hg38}/${props.gene_id_hg38}.png`}
+                            alt={'msa.png'} width={"100%"} height={"100%"}
+                        />
+                    </Col>
+                    <Col span={10}>
+                        <Image
+                            src={`/images/MSA_77_denovo/${props.gene_id_hg38}/${props.gene_id_hg38}_pep.png`}
+                            alt={'pep_msa.png'} width={"100%"} height={"100%"}
+                        />
                     </Col>
                 </Row>
             </div>

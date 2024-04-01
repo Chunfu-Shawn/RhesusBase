@@ -9,6 +9,7 @@
 
 # next.js
 /frontend/.next/
+/frontend/public/images/MSA_77_denovo/
 /out/
 
 #idea
