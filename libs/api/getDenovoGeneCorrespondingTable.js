@@ -6,7 +6,7 @@ export async function getDenovoGeneCorrespondingTable(){
 
         try {
             denovoGeneCorrespondingTable = fs.readFileSync(
-                '/home/user/data3/rbase/public_resource/datasets/files/gene_corresponding_table.json', 'utf8');
+                '/home/user/data3/rbase/public_resource/data/files/gene_corresponding_table.json', 'utf8');
         } catch (e) {
             reject(e)
             denovoGeneCorrespondingTable=null
