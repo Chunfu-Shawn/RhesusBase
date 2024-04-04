@@ -73,27 +73,7 @@ export default function Denovo() {
             }
         },
         {
-            title: 'Evolutionary Age',
-            dataIndex: 'evolutionary_age',
-            key: 'evolutionary_age',
-            width: '11%',
-            sorter: (a, b) => {
-                if (a.evolutionary_age > b.evolutionary_age) return 1
-                else return -1
-            }
-        },
-        {
-            title: 'Syntenic Age',
-            dataIndex: 'syntenic_age',
-            key: 'syntenic_age',
-            width: '9%',
-            sorter: (a, b) => {
-                if (a.syntenic_age > b.syntenic_age) return 1
-                else return -1
-            }
-        },
-        {
-            title: 'Protein Age',
+            title: 'Gene Age',
             dataIndex: 'protein_age',
             key: 'protein_age',
             width: '9%',
