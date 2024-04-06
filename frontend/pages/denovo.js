@@ -5,19 +5,20 @@ import {Button, Space, Table} from 'antd';
 import {Divider} from 'antd';
 import {LoadingOutlined} from "@ant-design/icons";
 
-export async function getServerSideProps() {
-    const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3001")
-        +"/api/denovo/74_denovo_genes.hg19_hg38.denovo_status"
-    )
-    const data = await res.json()
+export default function Denovo() {
+    const [denovoGeneTable, setDenovoGeneTable] = useState([]);
+    const [tableLoading, setTableLoading] = useState(true);
+    const fetchData = async () => {
+        // get denovo gene correspoding table
+        fetch("https://resource.rhesusbase.com/files/74_denovo_genes.hg19_hg38.denovo_status.json")
+            .then(res => res.json())
+            .then(data => setDenovoGeneTable(data))
+            .then(() => setTableLoading(false))
+    };
 
-    // Pass post data to the page via props
-    return {
-        props: data
-    }
-}
-export default function Denovo(props) {
+    useEffect(() => {
+        fetchData()
+    }, []);
 
     const columns =[
         {
@@ -107,14 +108,19 @@ export default function Denovo(props) {
                     <h1><i>De novo</i> genes</h1>
                 </header>
                 <Divider></Divider>
+                {tableLoading === true ?
+                    <div style={{textAlign:"center"}}>
+                        <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                    </div>:
                     <Table
                         dataSource={
-                            props.map(item => {
+                            denovoGeneTable.map(item => {
                                 return {key: item.gene_id_hg19, ...item}
                             })}
                         columns={columns}
                         size={"middle"}
                     />
+                }
             </div>
         </LayoutCustom>
     )
