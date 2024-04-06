@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
     const data = await res.json()
     let geneInfo
     data.forEach(item => {
-        if (item.gene_id_hg38 === context.params.gene_id){
+        if (item["Gene ID hg19"] === context.params.gene_id){
             geneInfo = item
         }
     })

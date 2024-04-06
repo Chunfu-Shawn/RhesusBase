@@ -16,9 +16,9 @@ RouterAPI.get('/api/denovo/gene_correspodinging_table', async (ctx) => {
     }catch (e) {
         console.error(e)
         ctx.body = [{
-            gene_id_hg38:null,
-            gene_name:null,
-            transcript_id_hg38:null
+            "Gene ID hg19":null,
+            "Gene ID hg38":null,
+            "Transcript ID hg38":null
         }]
         ctx.res.statusCode = 404
     }
