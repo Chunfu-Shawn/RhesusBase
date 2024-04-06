@@ -10,15 +10,17 @@ import {getDenovoGeneCorrespondingTable} from "./api/getDenovoGeneCorrespondingT
 
 export const RouterAPI = router()
 
-RouterAPI.get('/api/denovo/gene_correspodinging_table', async (ctx) => {
+RouterAPI.get('/api/denovo/74_denovo_genes.hg19_hg38.denovo_status', async (ctx) => {
     try {
         ctx.body = await getDenovoGeneCorrespondingTable()
     }catch (e) {
         console.error(e)
         ctx.body = [{
-            "Gene ID hg19":null,
-            "Gene ID hg38":null,
-            "Transcript ID hg38":null
+            "gene_id_hg19":null,
+            "tx_id_hg19":null,
+            "gene_id_hg38":null,
+            "gene_name":null,
+            "tx_id_hg38":null
         }]
         ctx.res.statusCode = 404
     }

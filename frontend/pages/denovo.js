@@ -33,8 +33,8 @@ export default function Denovo() {
         },
         {
             title: 'Transcript ID (hg19)',
-            dataIndex: 'transcript_id_hg19',
-            key: 'transcript_id_hg19',
+            dataIndex: 'tx_id_hg19',
+            key: 'tx_id_hg19',
             width: '13%',
             ellipsis: true,
             sorter: (a, b) => {
@@ -64,8 +64,8 @@ export default function Denovo() {
         },
         {
             title: 'Transcript ID (hg38)',
-            dataIndex: 'transcript_id_hg38',
-            key: 'transcript_id_hg38',
+            dataIndex: 'tx_id_hg38',
+            key: 'tx_id_hg38',
             width: '13%',
             sorter: (a, b) => {
                 if (a.transcript_id_hg38 > b.transcript_id_hg38) return 1
@@ -88,7 +88,7 @@ export default function Denovo() {
             key: 'ma',
             width: '11%',
             render: (text,record) => <Space align={"center"}>
-                <a href={`/denovo/maf/${record.gene_id_hg38}`} target={"_blank"} id={record.gene_id_hg38} rel={'noreferrer'}>
+                <a href={`/denovo/maf/${record.gene_id_hg19}`} target={"_blank"} id={record.gene_id_hg19} rel={'noreferrer'}>
                     <Button style={{width:120}}>
                         View result
                     </Button>
@@ -115,7 +115,7 @@ export default function Denovo() {
                     <Table
                         dataSource={
                             denovoGeneTable.map(item => {
-                                return {key: item.gene_id_hg38, ...item}
+                                return {key: item.gene_id_hg19, ...item}
                             })}
                         columns={columns}
                         size={"middle"}
