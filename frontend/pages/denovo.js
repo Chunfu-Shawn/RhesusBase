@@ -10,7 +10,7 @@ export default function Denovo() {
     const [tableLoading, setTableLoading] = useState(true);
     const fetchData = async () => {
         // get denovo gene correspoding table
-        fetch("https://resource.rhesusbase.com/files/74_denovo_genes.denovo_status.json")
+        fetch("https://resource.rhesusbase.com/files/74_denovo_genes.hg19_hg38.denovo_status.json")
             .then(res => res.json())
             .then(data => setDenovoGeneTable(data))
             .then(() => setTableLoading(false))
