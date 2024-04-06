@@ -38,7 +38,7 @@ export default function Denovo() {
             width: '13%',
             ellipsis: true,
             sorter: (a, b) => {
-                if (a.transcript_id_hg19 > b.transcript_id_hg19) return 1
+                if (a.tx_id_hg19 > b.tx_id_hg19) return 1
                 else return -1
             }
         },
@@ -68,7 +68,7 @@ export default function Denovo() {
             key: 'tx_id_hg38',
             width: '13%',
             sorter: (a, b) => {
-                if (a.transcript_id_hg38 > b.transcript_id_hg38) return 1
+                if (a.tx_id_hg38 > b.tx_id_hg38) return 1
                 else return -1
             }
         },
