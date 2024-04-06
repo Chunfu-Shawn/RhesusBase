@@ -76,7 +76,7 @@ export default function Denovo() {
             title: 'Gene Age',
             dataIndex: 'protein_age',
             key: 'protein_age',
-            width: '9%',
+            width: '6%',
             sorter: (a, b) => {
                 if (a.protein_age > b.protein_age) return 1
                 else return -1
@@ -86,10 +86,10 @@ export default function Denovo() {
             title: 'Multiple sequence alignment',
             dataIndex: 'ma',
             key: 'ma',
-            width: '11%',
+            width: '13%',
             render: (text,record) => <Space align={"center"}>
                 <a href={`/denovo/maf/${record.gene_id_hg19}`} target={"_blank"} id={record.gene_id_hg19} rel={'noreferrer'}>
-                    <Button style={{width:120}}>
+                    <Button style={{width:200}}>
                         View result
                     </Button>
                 </a>
