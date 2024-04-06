@@ -1,0 +1,594 @@
+[
+ {
+  "Gene ID hg19": "ENSG00000120742",
+  "Transcript ID hg19": "SERP1:ENST00000490945.1",
+  "Gene ID hg38": "ENSG00000120742",
+  "Gene Name hg38": "SERP1",
+  "Transcript ID hg38": "ENST00000490945",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000136242",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000145063",
+  "Transcript ID hg19": "ENST00000273641",
+  "Gene ID hg38": "ENSG00000145063",
+  "Gene Name hg38": "ENSG00000145063",
+  "Transcript ID hg38": "ENST00000544306",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000149443",
+  "Transcript ID hg19": "ENSTT00000278779",
+  "Gene ID hg38": "ENSG00000149443",
+  "Gene Name hg38": "SCP2D1-AS1",
+  "Transcript ID hg38": "ENST00000623418",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000162968",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000225953",
+  "Gene Name hg38": "SATB2-AS1",
+  "Transcript ID hg38": "ENST00000416200",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000167159",
+  "Transcript ID hg19": "ENSTT00000300525",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000167747",
+  "Transcript ID hg19": "ENST00000391812",
+  "Gene ID hg38": "ENSG00000167747",
+  "Gene Name hg38": "C19orf48",
+  "Transcript ID hg38": "ENST00000598463",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000172927",
+  "Transcript ID hg19": "ENST00000308946",
+  "Gene ID hg38": "ENSG00000172927",
+  "Gene Name hg38": "MYEOV",
+  "Transcript ID hg38": "ENST00000308946",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000174407",
+  "Transcript ID hg19": "ENST00000370523",
+  "Gene ID hg38": "ENSG00000174407",
+  "Gene Name hg38": "MIR1-1HG",
+  "Transcript ID hg38": "ENST00000370523",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000175913",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000255384",
+  "Gene Name hg38": "ENSG00000255384",
+  "Transcript ID hg38": "ENST00000532619",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000176833",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000176911",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000177822",
+  "Transcript ID hg19": "ENST00000315302",
+  "Gene ID hg38": "ENSG00000177822",
+  "Gene Name hg38": "TENM3-AS1",
+  "Transcript ID hg38": "ENST00000505873",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000178803",
+  "Transcript ID hg19": "ENST00000326341",
+  "Gene ID hg38": "ENSG00000178803",
+  "Gene Name hg38": "ADORA2A-AS1",
+  "Transcript ID hg38": "ENST00000326341",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000179522",
+  "Transcript ID hg19": "ENST00000318659",
+  "Gene ID hg38": "ENSG00000196542",
+  "Gene Name hg38": "SPTSSB",
+  "Transcript ID hg38": "ENST00000359175",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000180838",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000182457",
+  "Transcript ID hg19": "ENST00000327903",
+  "Gene ID hg38": "ENSG00000253352",
+  "Gene Name hg38": "TUG1",
+  "Transcript ID hg38": "ENST00000540687",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000183250",
+  "Transcript ID hg19": "ENSTT00000330551",
+  "Gene ID hg38": "ENSG00000183250",
+  "Gene Name hg38": "LINC01547",
+  "Transcript ID hg38": "ENST00000330551",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000187488",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000224051",
+  "Gene Name hg38": "CPTP",
+  "Transcript ID hg38": "ENST00000343938",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000189223",
+  "Transcript ID hg19": "AC016683.6:ENST00000422956.2",
+  "Gene ID hg38": "ENSG00000189223",
+  "Gene Name hg38": "PAX8-AS1",
+  "Transcript ID hg38": "ENST00000422956",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000196273",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000196273",
+  "Gene Name hg38": "LINC00523",
+  "Transcript ID hg38": "ENST00000360899",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000197916",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000260121",
+  "Gene Name hg38": "ENSG00000260121",
+  "Transcript ID hg38": "ENST00000564984",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000198547",
+  "Transcript ID hg19": "ENST00000360785",
+  "Gene ID hg38": "ENSG00000198547",
+  "Gene Name hg38": "C20orf203",
+  "Transcript ID hg38": "ENST00000360785",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000203930",
+  "Transcript ID hg19": "ENST00000370535",
+  "Gene ID hg38": "ENSG00000203930",
+  "Gene Name hg38": "LINC00632",
+  "Transcript ID hg38": "ENST00000649335",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204091",
+  "Transcript ID hg19": "ENST00000373170",
+  "Gene ID hg38": "ENSG00000204091",
+  "Gene Name hg38": "TDRG1",
+  "Transcript ID hg38": "ENST00000448559",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204292",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000267535",
+  "Gene Name hg38": "LINC00868",
+  "Transcript ID hg38": "ENST00000592919",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204380",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000204380",
+  "Gene Name hg38": "PKP4-AS1",
+  "Transcript ID hg38": "ENST00000342892",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204626",
+  "Transcript ID hg19": "ENST00000376812",
+  "Gene ID hg38": "ENSG00000250091",
+  "Gene Name hg38": "DNAH10OS",
+  "Transcript ID hg38": "ENST00000514254",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204666",
+  "Transcript ID hg19": "ENST00000377006",
+  "Gene ID hg38": "ENSG00000204666",
+  "Gene Name hg38": "ZNF473CR",
+  "Transcript ID hg38": "ENST00000527209",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000204674",
+  "Transcript ID hg19": "ENST00000377064",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000205056",
+  "Transcript ID hg19": "ENST00000378485",
+  "Gene ID hg38": "ENSG00000257127",
+  "Gene Name hg38": "CLLU1",
+  "Transcript ID hg38": "ENST00000378485",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000205373",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000205557",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000100433",
+  "Gene Name hg38": "KCNK10",
+  "Transcript ID hg38": "ENST00000340700",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000205704",
+  "Transcript ID hg19": "ENSTT00000381348",
+  "Gene ID hg38": "ENSG00000205704",
+  "Gene Name hg38": "SMIM45",
+  "Transcript ID hg38": "ENST00000381348",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000205965",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000206028",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000206028",
+  "Gene Name hg38": "ENSG00000206028",
+  "Transcript ID hg38": "ENST00000382641",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000206096",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000206110",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000206113",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000206113",
+  "Gene Name hg38": "CFAP99",
+  "Transcript ID hg38": "ENST00000382849",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000212693",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000144057",
+  "Gene Name hg38": "ST6GAL2",
+  "Transcript ID hg38": "ENST00000409382",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000212736",
+  "Transcript ID hg19": "ENST00000391430",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000214112",
+  "Transcript ID hg19": "ENST00000397571",
+  "Gene ID hg38": "ENSG00000265096",
+  "Gene Name hg38": "C1QTNF1-AS1",
+  "Transcript ID hg38": "ENST00000581579",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000214130",
+  "Transcript ID hg19": "ENST00000397608",
+  "Gene ID hg38": "ENSG00000181072",
+  "Gene Name hg38": "CHRM2",
+  "Transcript ID hg38": "ENST00000480591",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000214780",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000215071",
+  "Transcript ID hg19": "ENST00000324987",
+  "Gene ID hg38": "ENSG00000180822",
+  "Gene Name hg38": "PSMG4",
+  "Transcript ID hg38": "ENST00000454610",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000215458",
+  "Transcript ID hg19": "ENST00000400385",
+  "Gene ID hg38": "ENSG00000215458",
+  "Gene Name hg38": "AATBC",
+  "Transcript ID hg38": "ENST00000400385",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000215494",
+  "Transcript ID hg19": "ENST00000400449",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000215848",
+  "Transcript ID hg19": "ENST00000400991",
+  "Gene ID hg38": "ENSG00000125462",
+  "Gene Name hg38": "MIR9-1HG",
+  "Transcript ID hg38": "ENST00000476966",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000218478",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000183579",
+  "Gene Name hg38": "ZNRF3",
+  "Transcript ID hg38": "ENST00000544604",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000221891",
+  "Transcript ID hg19": "ENST00000408897",
+  "Gene ID hg38": "ENSG00000250486",
+  "Gene Name hg38": "FAM218A",
+  "Transcript ID hg38": "ENST00000648094",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000221899",
+  "Transcript ID hg19": "ENST00000408913",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000221953",
+  "Transcript ID hg19": "ENST00000408893",
+  "Gene ID hg38": "ENSG00000221953",
+  "Gene Name hg38": "LINC02897",
+  "Transcript ID hg38": "ENST00000623686",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000221990",
+  "Transcript ID hg19": "ENSTT00000408966",
+  "Gene ID hg38": "ENSG00000221990",
+  "Gene Name hg38": "EXOC3-AS1",
+  "Transcript ID hg38": "ENST00000623673",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000223857",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000291179",
+  "Gene Name hg38": "ENSG00000291179",
+  "Transcript ID hg38": "ENST00000619106",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000224013",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000279491",
+  "Gene Name hg38": "ENSG00000279491",
+  "Transcript ID hg38": "ENST00000623785",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000224376",
+  "Transcript ID hg19": "AC017104.6:ENST00000454416.1",
+  "Gene ID hg38": "ENSG00000224376",
+  "Gene Name hg38": "ENSG00000224376",
+  "Transcript ID hg38": "ENST00000454416",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000225021",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000259940",
+  "Gene Name hg38": "ENSG00000259940",
+  "Transcript ID hg38": "ENST00000567108",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000225860",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000267452",
+  "Gene Name hg38": "LINC02073",
+  "Transcript ID hg38": "ENST00000441895",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000225917",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000230294",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000230294",
+  "Gene Name hg38": "LINC02370",
+  "Transcript ID hg38": "ENST00000428272",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000233290",
+  "Transcript ID hg19": "RP11-147G16.1:ENST00000420549.1",
+  "Gene ID hg38": "ENSG00000233290",
+  "Gene Name hg38": "ENSG00000233290",
+  "Transcript ID hg38": "ENST00000420549",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000235766",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000167645",
+  "Gene Name hg38": "YIF1B",
+  "Transcript ID hg38": "ENST00000339413",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000236081",
+  "Transcript ID hg19": "AC074389.9:ENST00000453348.1",
+  "Gene ID hg38": "ENSG00000236081",
+  "Gene Name hg38": "ELFN1-AS1",
+  "Transcript ID hg38": "ENST00000453348",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000236314",
+  "Transcript ID hg19": "-",
+  "Gene ID hg38": "ENSG00000205476",
+  "Gene Name hg38": "CCDC85C",
+  "Transcript ID hg38": "ENST00000380243",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000240057",
+  "Transcript ID hg19": "RP11-572M11.4:ENST00000460707.1",
+  "Gene ID hg38": "-",
+  "Gene Name hg38": "-",
+  "Transcript ID hg38": "-",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000243926",
+  "Transcript ID hg19": "TIPARP-AS1:ENST00000492937.1",
+  "Gene ID hg38": "ENSG00000243926",
+  "Gene Name hg38": "TIPARP-AS1",
+  "Transcript ID hg38": "ENST00000492937",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000244291",
+  "Transcript ID hg19": "ENSTT00000333319",
+  "Gene ID hg38": "ENSG00000182648",
+  "Gene Name hg38": "RNF32-DT",
+  "Transcript ID hg38": "ENST00000624071",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000247796",
+  "Transcript ID hg19": "CTD-2366F13.1:ENST00000499459.2",
+  "Gene ID hg38": "ENSG00000247796",
+  "Gene Name hg38": "MOCS2-DT",
+  "Transcript ID hg38": "ENST00000502171",
+  "Protein Age": "human"
+ },
+ {
+  "Gene ID hg19": "ENSG00000253929",
+  "Transcript ID hg19": "RP11-382A18.2:ENST00000521586.1",
+  "Gene ID hg38": "ENSG00000253438",
+  "Gene Name hg38": "PCAT1",
+  "Transcript ID hg38": "ENST00000521586",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000257135",
+  "Transcript ID hg19": "RP11-320M2.1:ENST00000553181.1",
+  "Gene ID hg38": "ENSG00000257135",
+  "Gene Name hg38": "ODC1-DT",
+  "Transcript ID hg38": "ENST00000547349",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000258376",
+  "Transcript ID hg19": "RP4-647C14.2:ENST00000554614.1",
+  "Gene ID hg38": "ENSG00000258376",
+  "Gene Name hg38": "PAPLN-AS1",
+  "Transcript ID hg38": "ENST00000554614",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000260456",
+  "Transcript ID hg19": "ENSTT00000253461",
+  "Gene ID hg38": "ENSG00000260456",
+  "Gene Name hg38": "C16orf95",
+  "Transcript ID hg38": "ENST00000253461",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "ENSG00000261644",
+  "Transcript ID hg19": "RP11-327F22.2:ENST00000567728.1",
+  "Gene ID hg38": "ENSG00000261644",
+  "Gene Name hg38": "CYLD-AS1",
+  "Transcript ID hg38": "ENST00000567728",
+  "Protein Age": "hominoid"
+ },
+ {
+  "Gene ID hg19": "RP11-693J15.5-ENSG00000205056",
+  "Transcript ID hg19": "RP11-693J15.5:ENST00000504409.3",
+  "Gene ID hg38": "ENSG00000205056",
+  "Gene Name hg38": "LINC02397",
+  "Transcript ID hg38": "ENST00000504409",
+  "Protein Age": "hominoid"
+ }
+]
