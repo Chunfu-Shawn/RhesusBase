@@ -44,13 +44,13 @@ export default function DenovoMafPage(props) {
                 <Row align="top" style={{marginBottom:10}}>
                     <Col span={14}>
                         <Image
-                            src={`/images/MSA_77_denovo/${gene_id}/${gene_id}.png`}
+                            src={`/images/MSA_93_denovo/${gene_id}/${gene_id}.png`}
                             alt={'msa.png'} width={"100%"} height={"100%"}
                         />
                     </Col>
                     <Col span={10}>
                         <Image
-                            src={`/images/MSA_77_denovo/${gene_id}/${gene_id}_pep.png`}
+                            src={`/images/MSA_93_denovo/${gene_id}/${gene_id}_pep.png`}
                             alt={'pep_msa.png'} width={"100%"} height={"100%"}
                         />
                     </Col>
