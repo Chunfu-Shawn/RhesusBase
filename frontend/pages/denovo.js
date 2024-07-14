@@ -2,8 +2,9 @@ import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import React, {useEffect, useState} from "react";
 import {Button, Space, Table} from 'antd';
-import {Divider} from 'antd';
+import {Divider, Collapse, Image} from 'antd';
 import {LoadingOutlined} from "@ant-design/icons";
+const { Panel } = Collapse;
 
 export default function Denovo() {
     const [denovoGeneTable, setDenovoGeneTable] = useState([]);
@@ -97,18 +98,13 @@ export default function Denovo() {
         }
     ]
 
-
-    return (
-        <LayoutCustom>
-            <Head>
-                <title>{siteTitle+"| De novo genes"}</title>
-            </Head>
-            <div className="modal-body-stw" style={{textAlign: "left"}}>
-                <header className="page-header">
-                    <h1><i>De novo</i> genes</h1>
-                </header>
-                <Divider></Divider>
-                {tableLoading === true ?
+    const items = [
+        {
+            key: '1',
+            label: 'This is panel header 1',
+            children:
+                <div>
+                    tableLoading === true ?
                     <div style={{textAlign:"center"}}>
                         <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
                     </div>:
@@ -120,7 +116,50 @@ export default function Denovo() {
                         columns={columns}
                         size={"middle"}
                     />
-                }
+                </div>
+        },
+        {
+            key: '2',
+            label: 'This is panel header 2',
+            children: <p></p>,
+        }
+    ];
+
+    return (
+        <LayoutCustom>
+            <Head>
+                <title>{siteTitle+"| De novo genes"}</title>
+            </Head>
+            <div className="modal-body-stw" style={{textAlign: "left"}}>
+                <header className="page-header">
+                    <h1><i>De novo</i> genes</h1>
+                </header>
+                <Divider></Divider>
+                <Collapse defaultActiveKey={['1','2']}  size="large">
+                    <Panel header={<b>Gene List</b>} key="1" >
+                        {tableLoading === true ?
+                        <div style={{textAlign:"center"}}>
+                            <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                        </div>:
+                        <Table
+                            dataSource={
+                                denovoGeneTable.map(item => {
+                                    return {key: item.gene_id_hg19, ...item}
+                                })}
+                            columns={columns}
+                            size={"middle"}
+                        />}
+                    </Panel>
+                    <Panel header={<b>Translation Evidence</b>} key="2">
+                        <div style={{
+                            display:"flex",
+                            justifyContent: "center", /* 水平居中 */
+                            alignItems: "flex-start", /* 垂直置顶 */}}
+                        >
+                            <Image src="/images/denovo/translation_web.png" alt="translation_evidence"  width={1200} height={900}/>
+                        </div>
+                    </Panel>
+                </Collapse>
             </div>
         </LayoutCustom>
     )

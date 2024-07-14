@@ -37,7 +37,7 @@ export default function Contact() {
                     <p style={{fontSize:16}}><b>Research Fields: </b>Bioinformatics, Genomic Medicine, Comparative Genomics</p>
                 </div>
 
-                <Image src="/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
+                <Image src="/images/contact/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
 
                 <ul className="people" style={{fontSize:16}}>
                     <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu, Ting Li,</li>
@@ -75,6 +75,7 @@ export default function Contact() {
                     </b>
                 </span>
             </div>
+
         </LayoutCustom>
     )
 }

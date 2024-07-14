@@ -52,7 +52,7 @@ export default function Navigator(){
         <nav className="navbar-default navbar-fixed-top">
             <div className="container">
                 <div>
-                    <Link href="/">
+                    <Link href="/denovo">
                         <a className="navbar-brand" >
                             RhesusBase
                         </a>
@@ -61,8 +61,8 @@ export default function Navigator(){
                 <ul className={"nav navbar-nav"} >
                     <li id="stellaris" className="nav-item"><Link href="https://spatial.rhesusbase.com"><a className="nav-link">STellaris</a></Link></li>
                     <li id="denovo" className="nav-item"><Link href="/denovo"><a className="nav-link"><i>De novo</i> genes</a></Link></li>
-                    <li id="molEvo" className="nav-item"><Link href="/molEvo"><a className="nav-link">Molecular Evolution</a></Link></li>
-                    <li id="popGateway" className="nav-item"><Link href="/popGateway"><a className="nav-link">Population Genetics</a></Link></li>
+                    <li id="molEvo" className="nav-item"><Link href="/denovo"><a className="nav-link">Molecular Evolution</a></Link></li>
+                    <li id="popGateway" className="nav-item"><Link href="/denovo"><a className="nav-link">Population Genetics</a></Link></li>
                     <li id="downloads" className="nav-item"><Link href="/downloads"><a className="nav-link">Downloads</a></Link></li>
                     <li id="contact" className="nav-item"><Link href="/contact"><a className="nav-link" >Contact</a></Link></li>
                 </ul>
