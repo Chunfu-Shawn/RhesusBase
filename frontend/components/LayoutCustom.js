@@ -31,10 +31,7 @@ export default function LayoutCustom({ children }) {
             </Head>
             <FloatButton.BackTop duration={100} visibilityHeight={1000} style={{right:60}}></FloatButton.BackTop>
             <Navigator></Navigator>
-            <div style={{
-                display:"flex",
-                justifyContent: "center", /* 水平居中 */
-                alignItems: "flex-start", /* 垂直置顶 */}}>
+            <div>
                 {children}
             </div>
             <div style={{flexGrow:1}}></div>

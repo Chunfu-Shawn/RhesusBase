@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import React, {useEffect, useState} from "react";
-import {Button, Space, Table} from 'antd';
+import {Button, Col, Pagination, Row, Space, Table} from 'antd';
 import {Divider, Collapse, Image} from 'antd';
 import {LoadingOutlined} from "@ant-design/icons";
 const { Panel } = Collapse;
 
 export default function Denovo() {
     const [denovoGeneTable, setDenovoGeneTable] = useState([]);
+    const [ORFAnnotationDatasetTable, setORFAnnotationDatasetTable] = useState([]);
+    const [reanalyzedDatasetTable, setReanalyzedDatasetTable] = useState([]);
+    const [msDatasetTable, setMSDatasetTable] = useState([]);
     const [tableLoading, setTableLoading] = useState(true);
     const fetchData = async () => {
         // get denovo gene correspoding table
@@ -15,13 +18,28 @@ export default function Denovo() {
             .then(res => res.json())
             .then(data => setDenovoGeneTable(data))
             .then(() => setTableLoading(false))
+        // get ORF annotation datasets
+        fetch("https://resource.rhesusbase.com/files/ORF_annotations.datasets.json")
+            .then(res => res.json())
+            .then(data => setORFAnnotationDatasetTable(data))
+            .then(() => setTableLoading(false))
+        // get reannalyzed Ribo-seq datasets
+        fetch("https://resource.rhesusbase.com/files/Reanalyzed_riboseq.datasets.json")
+            .then(res => res.json())
+            .then(data => setReanalyzedDatasetTable(data))
+            .then(() => setTableLoading(false))
+        // get MS datasets
+        fetch("https://resource.rhesusbase.com/files/MS.datasets.json")
+            .then(res => res.json())
+            .then(data => setMSDatasetTable(data))
+            .then(() => setTableLoading(false))
     };
 
     useEffect(() => {
         fetchData()
     }, []);
 
-    const columns =[
+    const columnGene =[
         {
             title: 'Gene ID (hg19)',
             dataIndex: 'gene_id_hg19',
@@ -97,33 +115,96 @@ export default function Denovo() {
             </Space>
         }
     ]
-
-    const items = [
+    const columnsDataset =[
         {
-            key: '1',
-            label: 'This is panel header 1',
-            children:
-                <div>
-                    tableLoading === true ?
-                    <div style={{textAlign:"center"}}>
-                        <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
-                    </div>:
-                    <Table
-                        dataSource={
-                            denovoGeneTable.map(item => {
-                                return {key: item.gene_id_hg19, ...item}
-                            })}
-                        columns={columns}
-                        size={"middle"}
-                    />
-                </div>
+            title: 'Study',
+            dataIndex: 'Study',
+            key: 'Study',
+            width: '9%',
+            sorter: (a, b) => {
+                if (a.Study > b.Study) return 1
+                else return -1
+            }
         },
         {
-            key: '2',
-            label: 'This is panel header 2',
-            children: <p></p>,
+            title: 'Detection method',
+            dataIndex: 'Detection_method',
+            key: 'Detection_method',
+            width: '7%',
+            ellipsis: true,
+            sorter: (a, b) => {
+                if (a.Detection_method > b.Detection_method) return 1
+                else return -1
+            }
+        },
+        {
+            title: 'Cells or tissue',
+            dataIndex: 'Cells_or_tissue',
+            key: 'Cells_or_tissue',
+            width: '11%',
+            sorter: (a, b) => {
+                if (a.Cells_or_tissue > b.Cells_or_tissue) return 1
+                else return -1
+            },
+            ellipsis: true
+        },
+        {
+            title: 'Source',
+            dataIndex: 'Source',
+            key: 'Source',
+            width:'15%',
+            sorter: (a, b) => {
+                if(a.Source > b.Source) return 1
+                else return -1
+            },
+            ellipsis: true
+        },
+        {
+            title: 'Publication',
+            dataIndex: 'Publication',
+            key: 'Publication',
+            width: '13%',
+            sorter: (a, b) => {
+                if (a.Publication > b.Publication) return 1
+                else return -1
+            },
+            ellipsis: true
         }
-    ];
+    ]
+    const columnsMS =[
+        {
+            title: 'Study',
+            dataIndex: 'Study',
+            key: 'Study',
+            width: '5%',
+            sorter: (a, b) => {
+                if (a.Study > b.Study) return 1
+                else return -1
+            }
+        },
+        {
+            title: 'Source',
+            dataIndex: 'Source',
+            key: 'Source',
+            width:'20%',
+            sorter: (a, b) => {
+                if(a.Source > b.Source) return 1
+                else return -1
+            },
+            ellipsis: true
+        },
+        {
+            title: 'Publication',
+            dataIndex: 'Publication',
+            key: 'Publication',
+            width: '20%',
+            sorter: (a, b) => {
+                if (a.Publication > b.Publication) return 1
+                else return -1
+            },
+            ellipsis: true
+        }
+    ]
 
     return (
         <LayoutCustom>
@@ -132,10 +213,10 @@ export default function Denovo() {
             </Head>
             <div className="modal-body-stw" style={{textAlign: "left"}}>
                 <header className="page-header">
-                    <h1><i>De novo</i> genes</h1>
+                    <h1>74 <i>de novo</i> genes from An <i>et al. Nat Ecol Evol</i> (2023)</h1>
                 </header>
                 <Divider></Divider>
-                <Collapse defaultActiveKey={['1','2']}  size="large">
+                <Collapse defaultActiveKey={['1','2','3']}  size="large">
                     <Panel header={<b>Gene List</b>} key="1" >
                         {tableLoading === true ?
                         <div style={{textAlign:"center"}}>
@@ -146,7 +227,7 @@ export default function Denovo() {
                                 denovoGeneTable.map(item => {
                                     return {key: item.gene_id_hg19, ...item}
                                 })}
-                            columns={columns}
+                            columns={columnGene}
                             size={"middle"}
                         />}
                     </Panel>
@@ -157,6 +238,57 @@ export default function Denovo() {
                             alignItems: "flex-start", /* 垂直置顶 */}}
                         >
                             <Image src="/images/denovo/translation_web.png" alt="translation_evidence"  width={1200} height={900}/>
+                        </div>
+                    </Panel>
+                    <Panel header={<b>Dataset table</b>} key="3">
+                        <div style={{
+                            display:"flex",
+                            justifyContent: "center", /* 水平居中 */
+                            alignItems: "flex-start", /* 垂直置顶 */}}
+                        >
+                            <Col>
+                                <Row><h3>Reanalyzed Ribo-seq datasets</h3></Row>
+                                <Row>{tableLoading === true ?
+                                    <div style={{textAlign:"center"}}>
+                                        <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                                    </div>:
+                                    <Table
+                                        dataSource={
+                                            reanalyzedDatasetTable.map(item => {
+                                                return {key: item.Study, ...item}
+                                            })}
+                                        columns={columnsDataset}
+                                        size={"small"}
+                                        pagination={{pageSize: 50}}
+                                    />}
+                                </Row>
+                                <Row><h3>Translated ORF annotation datasets</h3></Row>
+                                <Row>{tableLoading === true ?
+                                    <div style={{textAlign:"center"}}>
+                                        <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
+                                    </div>:
+                                    <Table
+                                        dataSource={
+                                            ORFAnnotationDatasetTable.map(item => {
+                                                return {key: item.Study, ...item}
+                                            })}
+                                        columns={columnsDataset}
+                                        size={"small"}
+                                        pagination={{pageSize: 50}}
+                                    />}
+                                </Row>
+                                <Row><h3>MS datasets</h3></Row>
+                                <Row>
+                                    <Table
+                                        dataSource={
+                                        msDatasetTable.map(item => {
+                                            return {key: item.Study, ...item}
+                                        })}
+                                        columns={columnsMS}
+                                        size={"small"}
+                                    />
+                                </Row>
+                            </Col>
                         </div>
                     </Panel>
                 </Collapse>
