@@ -247,7 +247,7 @@ export default function Denovo() {
                             alignItems: "flex-start", /* 垂直置顶 */}}
                         >
                             <Col>
-                                <Row><h3>Reanalyzed Ribo-seq datasets</h3></Row>
+                                <Row><h3>Re-analysed Ribo-seq datasets</h3></Row>
                                 <Row>{tableLoading === true ?
                                     <div style={{textAlign:"center"}}>
                                         <LoadingOutlined style={{margin:"auto",fontSize:30}}/>
