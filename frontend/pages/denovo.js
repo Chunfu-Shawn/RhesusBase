@@ -240,7 +240,7 @@ export default function Denovo() {
                             <Image src="/images/denovo/translation_web.png" alt="translation_evidence"  width={1200} height={900}/>
                         </div>
                     </Panel>
-                    <Panel header={<b>Dataset table</b>} key="3">
+                    <Panel header={<b>Dataset Table</b>} key="3">
                         <div style={{
                             display:"flex",
                             justifyContent: "center", /* 水平居中 */

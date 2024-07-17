@@ -40,8 +40,8 @@ export default function Contact() {
                 <Image src="/images/contact/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
 
                 <ul className="people" style={{fontSize:16}}>
-                    <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu, Ting Li,</li>
-                    <li>Chunfu Xiao, Jiaxin Wang, Juntian Qi, Xinwei Xu, Chunqiong Li, Shuhan Yang</li>
+                    <li><b>Students: </b>Mingjun Ji, Xiaoge Liu, Ting Li, Chunfu Xiao,</li>
+                    <li>Jiaxin Wang, Juntian Qi, Xinwei Xu, Chunqiong Li, Shuhan Yang, Xinwei Xu, Chao yao</li>
                     <li><b>Co-PI/Post-Doc Researchers: </b>Dr. Ni N. An, Dr. Wanqiu Ding</li>
                     <li><b>PI:</b> Chuan-Yun Li</li>
                 </ul>
